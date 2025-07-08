@@ -12,6 +12,7 @@ const ButtonMulai = ({peserta}: {peserta: User[]}) => {
     const router = useRouter();
 
     const handlePeserta = async () => {
+        if(peserta.length > 32) return MixinAlert("warning", "Tidak bisa lebih dari 32 peserta");
         const response = await createBracket(peserta);
         if (response) {
           MixinAlert("success", "Pertandingan berhasil dimulai");

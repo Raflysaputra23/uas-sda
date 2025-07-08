@@ -7,18 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "name": "Satriyo",
-          "score": 2,
-          "gambar": "/person.png",
-          "alamat": "lampung",
-          "tim": "external"
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         },
         {
-          "name": "Raffael",
-          "score": 1,
-          "gambar": "/person.png",
-          "alamat": "bantul",
-          "tim": "kewirausahaan"
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         }
       ]
     },
@@ -28,18 +30,158 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "name": "madun",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/gambar/5foyomg.png",
-          "alamat": "sukarame",
-          "tim": "external"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         },
         {
-          "name": "Dono",
-          "score": 1,
-          "gambar": "/person.png",
-          "alamat": "bantul",
-          "tim": "keilmuan"
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         }
       ]
     }

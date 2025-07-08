@@ -32,6 +32,7 @@ const Juara = () => {
       tim: "",
       juara: ""
     });
+    
   const { data: juaraUtama, isLoading: loading1 } = useSWR(`/api/pemenang/1`, fetcher);
   const { data: juaraRepechange, isLoading: loading2 } = useSWR(`/api/pemenang/2`, fetcher);
 

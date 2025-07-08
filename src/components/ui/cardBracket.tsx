@@ -99,7 +99,7 @@ const CardBracket = ({ peserta, ronde, folder }: { peserta: any ; ronde: string;
                 <>
                   <section className="min-w-80 max-w-96 w-80 rounded-md shadow-md bg-slate-100 p-3 flex gap-5 items-center">
                     <Image
-                      src={item.teams[0]?.gambar ?? "/person.png"}
+                      src={!item.teams[0]?.gambar ? "/person.png" : item.teams[0]?.gambar}
                       width={100}
                       height={100}
                       alt="Gambar"
@@ -129,7 +129,7 @@ const CardBracket = ({ peserta, ronde, folder }: { peserta: any ; ronde: string;
                   <h1 className="tillana-bold text-3xl text-blue-500">VS</h1>
                   <section className="min-w-80 max-w-96 w-80 rounded-md shadow-md bg-slate-100 p-3 flex gap-5 items-center">
                     <Image
-                      src={item.teams[1]?.gambar ?? "/person.png"}
+                      src={!item.teams[1]?.gambar ? "/person.png" : item.teams[1]?.gambar}
                       width={100}
                       height={100}
                       alt="Gambar"

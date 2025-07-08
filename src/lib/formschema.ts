@@ -17,5 +17,21 @@ const formRegisterSchema = z.object({
   path: ["confirmPassword"],
 });
 
+const formPendaftaranSchema = z.object({
+  username: z.string().min(4, "Username minimal 4 karakter"),
+  namaTim: z.string().min(2, "Nama Tim minimal 2 karakter"),
+  email: z.string().email("Email harus valid"),
+  alamat: z.string().min(2, "Alamat minimal 2 karakter")
+});
 
-export { formLoginSchema, formRegisterSchema };
+const formPendaftaranCsvSchema = z.object({
+  username: z.string().min(2, "Username minimal 4 karakter").optional(),
+  namaTim: z.string().min(2, "Nama Tim minimal 2 karakter").optional(),
+  nama: z.string().min(2, "Nama minimal 2 karakter").optional(),
+  tim: z.string().optional(),
+  alamat: z.string().min(2, "Alamat minimal 2 karakter").optional(),
+  email: z.string().email("Email harus valid").optional()
+})
+
+
+export { formLoginSchema, formRegisterSchema, formPendaftaranSchema, formPendaftaranCsvSchema };

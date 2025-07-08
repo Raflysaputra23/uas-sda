@@ -18,7 +18,7 @@ export const GET = async (req: Request, {
             });
         }
     } else {
-        return new Response(JSON.stringify({ message: "Unauthorized" }), {
+        return new Response(JSON.stringify({ message: "Unauthorized", data: [] }), {
             status: 404
         })
     }

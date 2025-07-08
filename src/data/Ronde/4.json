@@ -1,33 +1,13 @@
 {
-  "title": "1",
+  "title": "4",
   "seeds": [
     {
       "id": 1,
       "date": "",
-      "roundTitle": "Repechange",
+      "roundTitle": "Utama",
       "teams": [
         {
-          "name": "madun",
-          "score": 2,
-          "gambar": "/gambar/5foyomg.png",
-          "alamat": "sukarame",
-          "tim": "external"
-        },
-        {
-          "name": "Raffael",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "bantul",
-          "tim": "kewirausahaan"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "date": "",
-      "roundTitle": "Repechange",
-      "teams": [
-        {
+          "id": "",
           "name": "",
           "score": 0,
           "gambar": "",
@@ -35,6 +15,30 @@
           "tim": ""
         },
         {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
           "name": "",
           "score": 0,
           "gambar": "",
@@ -44,5 +48,5 @@
       ]
     }
   ],
-  "id": "1"
+  "id": "4"
 }

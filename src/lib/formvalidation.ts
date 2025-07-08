@@ -1,7 +1,7 @@
 "use server";
 
 import { User } from "@/types/type";
-import { formLoginSchema, formRegisterSchema } from "./formschema";
+import { formLoginSchema, formPendaftaranCsvSchema, formPendaftaranSchema, formRegisterSchema } from "./formschema";
 import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import currentDateTime from "./date";
@@ -100,6 +100,79 @@ const formValidationRegister = async (prev: unknown, formData: FormData) => {
   }
 };
 
+const formValidationPendaftaranCsv = async (formData: any) => {
+  for (const data of formData) {
+    const validated = formPendaftaranCsvSchema.safeParse(data);
+    if(!validated.success) return { success: false, error: validated.error?.flatten().fieldErrors, message: "Terjadi kesalahan" };
+
+    const file = data?.gambar instanceof File ? data?.gambar : null;
+    const { url }  = file ? await uploadFile(file) : { url: "/person.png" };
+
+    const password = await bcrypt.hash(data?.password ?? "1234", 10);
+    const id = Math.random().toString(36).substring(2, 9);
+    
+    const user: User = {
+      id,
+      username: validated.data.nama || validated.data.username || "",
+      namaTim: validated.data.tim || validated.data.namaTim || "",
+      email: data?.email ?? "",
+      gambar: url,
+      alamat: validated.data.alamat ?? "",
+      password,
+      createdAt: currentDateTime(),
+      role: "user",
+    };
+
+    // Simpan ke Database
+    const { message } = writeData(`User:${id}`, user);
+    if(message !== "success") return { success: false, message: "Terjadi kesalahan", error: null }; 
+  }  
+
+  return { success: true, message: "Pendaftaran berhasil", error: null };
+};
+
+const formValidationPendaftaran = async (prev: unknown, formData: FormData) => {
+  const data = Object.fromEntries(formData.entries());
+
+  // Validasi Form
+  const validated = formPendaftaranSchema.safeParse(data);
+  if (!validated.success) {
+    return { error: validated.error?.flatten().fieldErrors };
+  }
+
+  const id = Math.random().toString(36).substring(2, 9);
+
+
+  try {
+    const user: User = {
+      id,
+      username: validated.data.username,
+      namaTim: validated.data.namaTim,
+      email: validated.data.email,
+      gambar: "/person.png",
+      alamat: validated.data.alamat,
+      password: validated.data.username,
+      createdAt: currentDateTime(),
+      role: "user",
+    };
+
+    // Simpan ke Database
+    const { message } = writeData(`User:${id}`, user);
+    if(message) {
+      return {
+        message: "Berhasil Register",
+        type: "success",
+      };
+    }
+
+  } catch (error) {
+    return {
+      message: "Error: " + error,
+      type: "error",
+    }
+  }
+}
+
 const logout = async () => {
   const cookie = await cookies();
   const token = cookie.get("Session");
@@ -107,4 +180,4 @@ const logout = async () => {
   cookie.delete("Session");
 }
 
-export { formValidationLogin, formValidationRegister, logout };
+export { formValidationLogin, formValidationRegister, logout, formValidationPendaftaran, formValidationPendaftaranCsv };

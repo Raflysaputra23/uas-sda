@@ -3,7 +3,6 @@
 import { Eye, EyeClosed, Mail } from "lucide-react";
 import { Input } from "../ui/input";
 import { useActionState, useEffect, useState } from "react";
-import Link from "next/link";
 import { formValidationLogin } from "@/lib/formvalidation";
 import { MixinAlert } from "@/lib/alert";
 import ButtonLoading from "../ui/buttonLoading";
@@ -83,15 +82,6 @@ const FormLogin = () => {
           Login
         </ButtonLoading>
       </section>
-      <p className="text-center text-slate-700 text-sm my-4">
-        Belum punya akun?{" "}
-        <Link
-          href={"/register"}
-          className="text-slate-900 poppins-semibold cursor-pointer"
-        >
-          Daftar
-        </Link>
-      </p>
     </form>
   );
 };

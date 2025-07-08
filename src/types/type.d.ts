@@ -6,6 +6,7 @@ export interface User {
     email: string;
     alamat: string;
     gambar: string;
+    ronde?: string; 
     score?: {
         ronde1?: {
             score1?: number;
@@ -38,12 +39,14 @@ export interface User {
 }
 
 interface Team {
+  id: string;
   name: string;
   tim: string;
   score: number;
   alamat?: string;
   gambar?: string;
   kalahDari?: string;
+  ronde?: string;
 }
 
 export interface Seed {

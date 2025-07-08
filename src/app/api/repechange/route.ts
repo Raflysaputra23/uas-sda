@@ -9,7 +9,7 @@ export const GET = async (req: Request) => {
             status: 200
         })
     } else {
-        return new Response(JSON.stringify({ message: "Unauthorized" }), {
+        return new Response(JSON.stringify({ message: "Unauthorized", data: [] }), {
             status: 404
         })
     }

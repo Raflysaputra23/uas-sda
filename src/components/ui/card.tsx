@@ -7,7 +7,7 @@ const Card = ({ peserta, user }: { peserta: User, user: User }) => {
       {user.id === peserta.id && <p className="absolute top-0 right-0 bg-blue-500 p-2 text-slate-200 rounded-md text-xs inline-block">You</p>}
       <section className="flex items-center justify-center">
         <Image
-          src={peserta.gambar ?? "/person.png"}
+          src={!peserta.gambar ? "/person.png" : peserta.gambar}
           className="rounded-md shadow h-28"
           priority
           width={100}
