@@ -1,0 +1,29 @@
+{
+  "title": "Finals",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "etrz8sx",
+          "name": "galih_prayoga",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Lombok",
+          "tim": "tim_semeru"
+        }
+      ]
+    }
+  ],
+  "id": "Finals"
+}

@@ -7,20 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
-          "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "id": "r5etph6",
+          "name": "farhan_syahputra",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "Palembang",
+          "tim": "sriwijaya_fc"
         },
         {
-          "id": "",
-          "name": "",
+          "id": "jhaphrp",
+          "name": "maya_anindita",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "gambar": "/person.png",
+          "alamat": "Malang",
+          "tim": "cendrawasih_fc"
         }
       ]
     }

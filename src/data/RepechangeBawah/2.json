@@ -1,0 +1,52 @@
+{
+  "title": "2",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "0sfxr0g",
+          "name": "abdul_rizki",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Bandung",
+          "tim": "garuda_fc"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "vldwj6i",
+          "name": "nurhayati",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Semarang",
+          "tim": "sakura_team"
+        }
+      ]
+    }
+  ],
+  "id": "2"
+}

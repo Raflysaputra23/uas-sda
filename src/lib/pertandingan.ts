@@ -790,7 +790,7 @@ const getRepechangeParticipantsDouble = () => {
     b.ronde = "4";
 
     const kalah = a.score > b.score ? b : a;
-    kalahDariSemifinalisAtas.add(kalah);
+    kalahDariSemifinalisBawah.add(kalah);
   }
 
   // MASUKIN PESERTA BAWAH YANG KALAH DI FINALIS KE RONDE BERIKUTNYA
@@ -801,7 +801,7 @@ const getRepechangeParticipantsDouble = () => {
     b.ronde = "4";
 
     const kalah = a.score > b.score ? b : a;
-    kalahDariSemifinalisBawah.add(kalah);
+    kalahDariSemifinalisAtas.add(kalah);
   }
 
   const kalahSemifinalAtas: Map<string, { ronde: string; id: string }> =

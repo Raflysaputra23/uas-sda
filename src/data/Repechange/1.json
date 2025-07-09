@@ -1,0 +1,98 @@
+{
+  "title": "1",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "Repechange",
+      "teams": [
+        {
+          "id": "hgmqmat",
+          "name": "lutfiah_nabila",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Bogor",
+          "tim": "melati_fc"
+        },
+        {
+          "id": "rfq3mje",
+          "name": "dini_saputri",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Lombok",
+          "tim": "mentari_fc"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "Repechange",
+      "teams": [
+        {
+          "id": "5gxava5",
+          "name": "budi_santoso",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Surabaya",
+          "tim": "elang_timur"
+        },
+        {
+          "id": "z45q167",
+          "name": "nino_rama",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Pekanbaru",
+          "tim": "tim_nusantara"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "Repechange",
+      "teams": [
+        {
+          "id": "0sfxr0g",
+          "name": "abdul_rizki",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Bandung",
+          "tim": "garuda_fc"
+        },
+        {
+          "id": "3fgcghr",
+          "name": "galih_prayoga",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Lombok",
+          "tim": "tim_semeru"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "Repechange",
+      "teams": [
+        {
+          "id": "etrz8sx",
+          "name": "galih_prayoga",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Lombok",
+          "tim": "tim_semeru"
+        },
+        {
+          "id": "v6r6q3r",
+          "name": "rahmawati",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Jakarta",
+          "tim": "bintang_barat"
+        }
+      ]
+    }
+  ],
+  "id": "1"
+}

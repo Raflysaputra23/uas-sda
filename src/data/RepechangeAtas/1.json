@@ -1,0 +1,98 @@
+{
+  "title": "1",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "4u4xtyo",
+          "name": "mega_sari",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Padang",
+          "tim": "maju_bersama"
+        },
+        {
+          "id": "5gxava5",
+          "name": "budi_santoso",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Surabaya",
+          "tim": "elang_timur"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "6jhwst8",
+          "name": "agus_prasetyo",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Medan",
+          "tim": "merapi_fc"
+        },
+        {
+          "id": "zqk9c7d",
+          "name": "rina_andayani",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Depok",
+          "tim": "anggrek_fc"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    }
+  ],
+  "id": "1"
+}

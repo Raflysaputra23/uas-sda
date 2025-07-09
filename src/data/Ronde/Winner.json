@@ -7,12 +7,12 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
+          "id": "r5etph6",
+          "name": "farhan_syahputra",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "gambar": "/person.png",
+          "alamat": "Palembang",
+          "tim": "sriwijaya_fc"
         }
       ]
     }

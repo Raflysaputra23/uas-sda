@@ -1,0 +1,21 @@
+{
+  "title": "Winner",
+  "seeds": [
+    {
+      "id": 1,
+      "roundTitle": "RepechangeBawah",
+      "date": "",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    }
+  ],
+  "id": "Winner"
+}
