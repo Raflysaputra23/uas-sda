@@ -7,20 +7,20 @@
       "roundTitle": "RepechangeBawah",
       "teams": [
         {
-          "id": "",
-          "name": "",
-          "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "id": "qcfbjjy",
+          "name": "rafly_678",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "kota_7",
+          "tim": "tim_7"
         },
         {
-          "id": "",
-          "name": "",
+          "id": "w9bhdn9",
+          "name": "reza_429",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "gambar": "/person.png",
+          "alamat": "kota_12",
+          "tim": "tim_9"
         }
       ]
     }

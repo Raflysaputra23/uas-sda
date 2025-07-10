@@ -47,7 +47,7 @@ const CardBracket = memo(
 
         setSkor(peserta.seeds);
         for (const item of peserta.seeds) {
-          if((item.teams[0].id !== "" && item.teams[1].id === "") || (item.teams[0].id === "" && item.teams[1].id !== "")) {
+          if((item?.teams?.[0]?.name !== "" && item?.teams?.[1]?.name === "") || (item?.teams?.[0]?.name === "" && item?.teams?.[1]?.name !== "")) {
             setNotValid(true);
             break;
           }
