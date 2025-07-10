@@ -1,0 +1,52 @@
+{
+  "title": "2",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "qcfbjjy",
+          "name": "rafly_678",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_7",
+          "tim": "tim_7"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "qjrkyo8",
+          "name": "rizky_894",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_16",
+          "tim": "tim_4"
+        }
+      ]
+    }
+  ],
+  "id": "2"
+}

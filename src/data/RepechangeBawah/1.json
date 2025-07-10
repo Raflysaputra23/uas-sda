@@ -1,0 +1,98 @@
+{
+  "title": "1",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "4fo0bz9",
+          "name": "luthfi_661",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_4",
+          "tim": "tim_8"
+        },
+        {
+          "id": "jarynua",
+          "name": "dian_106",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_15",
+          "tim": "tim_9"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "uc978fq",
+          "name": "rani_629",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_10",
+          "tim": "tim_14"
+        },
+        {
+          "id": "w9bhdn9",
+          "name": "reza_429",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_12",
+          "tim": "tim_9"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    }
+  ],
+  "id": "1"
+}

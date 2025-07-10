@@ -1,0 +1,29 @@
+{
+  "title": "Finals",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "87ph5po",
+          "name": "fajar_959",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_8",
+          "tim": "tim_10"
+        }
+      ]
+    }
+  ],
+  "id": "Finals"
+}

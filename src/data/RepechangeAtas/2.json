@@ -1,0 +1,52 @@
+{
+  "title": "2",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "bhvxkcc",
+          "name": "sinta_517",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_9",
+          "tim": "tim_14"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "p8pdcfi",
+          "name": "ilham_830",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_14",
+          "tim": "tim_2"
+        }
+      ]
+    }
+  ],
+  "id": "2"
+}
