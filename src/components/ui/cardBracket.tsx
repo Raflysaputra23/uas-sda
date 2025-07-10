@@ -20,6 +20,7 @@ const CardBracket = memo(
     folder: string;
   }) => {
     const [skor, setSkor] = useState<Seed[]>([]);
+    const [notValid, setNotValid] = useState<boolean>(false);
     const [cekPeserta, setCekPeserta] = useState<Team[]>([]);
     const [copy, setCopy] = useState<string>("");
     const router = useRouter();
@@ -43,7 +44,14 @@ const CardBracket = memo(
         if (pemain.length <= 1 && ronde !== "winner") {
           router.push(`/antrian/${ronde}`);
         }
+
         setSkor(peserta.seeds);
+        for (const item of peserta.seeds) {
+          if((item.teams[0].id !== "" && item.teams[1].id === "") || (item.teams[0].id === "" && item.teams[1].id !== "")) {
+            setNotValid(true);
+            break;
+          }
+        };
       }
     }, [peserta]);
 
@@ -112,7 +120,7 @@ const CardBracket = memo(
 
     return (
       <section className="mt-5 flex gap-5 justify-center flex-col">
-        {cekPeserta.length <= 1 && (
+        {(notValid || (cekPeserta.length <= 1)) && (
           <section className="flex items-center justify-center gap-5">
             <h1 className="text-2xl poppins-semibold">
               Belum ada pertandingan pada ronde {ronde}
@@ -206,7 +214,7 @@ const CardBracket = memo(
             }
           })}
         <ButtonMain
-          disabled={cekPeserta.length <= 1}
+          disabled={cekPeserta.length <= 1 || notValid}
           className="my-5 mx-auto w-40"
           onClick={handleSubmit}
         >

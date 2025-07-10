@@ -7,20 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "jhaphrp",
-          "name": "maya_anindita",
-          "score": 2,
-          "gambar": "/person.png",
-          "alamat": "Malang",
-          "tim": "cendrawasih_fc"
-        },
-        {
-          "id": "z45q167",
-          "name": "nino_rama",
+          "id": "im23z74",
+          "name": "sari_694",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Pekanbaru",
-          "tim": "tim_nusantara"
+          "alamat": "kota_11",
+          "tim": "tim_6"
+        },
+        {
+          "id": "jo7dzfe",
+          "name": "budi_444",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_7",
+          "tim": "tim_1"
         }
       ]
     }

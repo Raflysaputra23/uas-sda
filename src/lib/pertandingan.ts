@@ -260,7 +260,6 @@ const createBracket = async (peserta: User[]) => {
 
   const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
   const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
-  console.log("Peserta Bay Bawah:",pesertaBayBawah);
   for (let i = 0; i < pesertaBayAtas.length; i++) {
     const seed = round2.seeds[Math.floor(i / 2)];
     const timIndex = i % 2;

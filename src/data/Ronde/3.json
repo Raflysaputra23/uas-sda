@@ -7,20 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "jhaphrp",
-          "name": "maya_anindita",
-          "score": 2,
+          "id": "im23z74",
+          "name": "sari_694",
+          "score": 5,
           "gambar": "/person.png",
-          "alamat": "Malang",
-          "tim": "cendrawasih_fc"
+          "alamat": "kota_11",
+          "tim": "tim_6"
         },
         {
-          "id": "yq9jdjn",
-          "name": "rudi_hartono",
+          "id": "bhvxkcc",
+          "name": "sinta_517",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Yogyakarta",
-          "tim": "rajawali_putih"
+          "alamat": "kota_9",
+          "tim": "tim_14"
         }
       ]
     },
@@ -30,20 +30,66 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "eyg95c4",
-          "name": "diana_safitri",
+          "id": "p8pdcfi",
+          "name": "ilham_830",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Semarang",
-          "tim": "tim_pelangi"
+          "alamat": "kota_14",
+          "tim": "tim_2"
         },
         {
-          "id": "z45q167",
-          "name": "nino_rama",
+          "id": "n3datxd",
+          "name": "fitri_959",
+          "score": 4,
+          "gambar": "/person.png",
+          "alamat": "kota_2",
+          "tim": "tim_16"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "87ph5po",
+          "name": "fajar_959",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "kota_8",
+          "tim": "tim_10"
+        },
+        {
+          "id": "qcfbjjy",
+          "name": "rafly_678",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_7",
+          "tim": "tim_7"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "qjrkyo8",
+          "name": "rizky_894",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_16",
+          "tim": "tim_4"
+        },
+        {
+          "id": "jo7dzfe",
+          "name": "budi_444",
           "score": 2,
           "gambar": "/person.png",
-          "alamat": "Pekanbaru",
-          "tim": "tim_nusantara"
+          "alamat": "kota_7",
+          "tim": "tim_1"
         }
       ]
     }
