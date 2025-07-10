@@ -2,7 +2,7 @@ import { Loader } from "lucide-react";
 
 const Loading = () => {
   return (
-    <section className="bg-linear-to-b from-[#4DA8DA] to-slate-200 to-40% flex absolute top-0 left-0 right-0 bottom-0 flex-col-reverse items-center justify-end gap-6 pt-30 z-10">
+    <section className="bg-linear-to-b from-[#4DA8DA] to-slate-200 to-40% flex absolute top-0 left-0 right-0 bottom-0 flex-col-reverse items-center justify-end gap-6 pt-30 z-20">
       <section className="flex flex-col items-center gap-6">
         <Loader size={40} className="animate-spin" />
         <h1 className="text-lg text-slate-900">Loading</h1>

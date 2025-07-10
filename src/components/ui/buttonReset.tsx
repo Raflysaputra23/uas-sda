@@ -1,24 +1,40 @@
 "use client";
 
 import { Loader, Undo2 } from "lucide-react";
-import { Button } from "./button";
 import { resetDatas } from "@/lib/pertandingan";
 import { useState } from "react";
-import { MixinAlert } from "@/lib/alert";
+import { ConfirmAlert, MixinAlert } from "@/lib/alert";
+import ButtonMain from "./buttonMain";
 
-const ButtonReset = ({ children, folder }: { children: React.ReactNode ,folder: string[] }) => {
-    const [ loading, setLoading ] = useState(false);
+const ButtonReset = ({
+  children,
+  folder,
+  tooltip = false,
+}: {
+  children: React.ReactNode;
+  folder: string[];
+  tooltip?: string | boolean;
+}) => {
+  const [loading, setLoading] = useState(false);
 
-    const handleReset = async () => {
-        setLoading(true);
-        await resetDatas([...folder]);
-        setLoading(false);
-        MixinAlert("success", "Data berhasil direset");
+  const handleReset = async () => {
+    const response = await ConfirmAlert(
+      `Apakah anda yakin ingin mereset data ini?`,
+      "warning"
+    );
+
+    if (response) {
+      setLoading(true);
+      await resetDatas([...folder]);
+      setLoading(false);
+      MixinAlert("success", "Data berhasil direset");
     }
+  };
+
   return (
-    <Button className="bg-blue-500 shadow text-slate-200 cursor-pointer" onClick={handleReset}>
-      { loading ? <Loader className="animate-spin" /> : <><span>{children}</span> <Undo2 /></> }
-    </Button>
+    <ButtonMain disabled={loading} tooltip={tooltip} onClick={handleReset}>
+      {children} {loading ? <Loader className="animate-spin" /> : <Undo2 />}
+    </ButtonMain>
   );
 };
 

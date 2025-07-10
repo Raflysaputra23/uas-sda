@@ -7,12 +7,104 @@
       "roundTitle": "Utama",
       "teams": [
         {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "jhaphrp",
+          "name": "maya_anindita",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "Malang",
+          "tim": "cendrawasih_fc"
+        },
+        {
+          "id": "zfx4nsf",
+          "name": "siti_hamidah",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Bandung",
+          "tim": "tunas_muda"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
           "id": "r5etph6",
           "name": "farhan_syahputra",
-          "score": 4,
+          "score": 0,
           "gambar": "/person.png",
           "alamat": "Palembang",
           "tim": "sriwijaya_fc"
+        },
+        {
+          "id": "nt2uy3u",
+          "name": "aldi_firmansyah",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "Depok",
+          "tim": "nusantara_united"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "ktotzij",
+          "name": "lia_melati",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Padang",
+          "tim": "singgalang_fc"
+        },
+        {
+          "id": "yq9jdjn",
+          "name": "rudi_hartono",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "Yogyakarta",
+          "tim": "rajawali_putih"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "eyg95c4",
+          "name": "diana_safitri",
+          "score": 3,
+          "gambar": "/person.png",
+          "alamat": "Semarang",
+          "tim": "tim_pelangi"
         },
         {
           "id": "hgmqmat",
@@ -25,117 +117,25 @@
       ]
     },
     {
-      "id": 2,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "5gxava5",
-          "name": "budi_santoso",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Surabaya",
-          "tim": "elang_timur"
-        },
-        {
-          "id": "ekexzjv",
-          "name": "sari_amalia",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Yogyakarta",
-          "tim": "merah_putih_fc"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "6jhwst8",
-          "name": "agus_prasetyo",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Medan",
-          "tim": "merapi_fc"
-        },
-        {
-          "id": "eyg95c4",
-          "name": "diana_safitri",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Semarang",
-          "tim": "tim_pelangi"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "68ogcy3",
-          "name": "irfan_mustofa",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Manado",
-          "tim": "satria_perkasa"
-        },
-        {
-          "id": "3fgcghr",
-          "name": "galih_prayoga",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "68jyx5s",
-          "name": "maulana_hakim",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Malang",
-          "tim": "tim_tiger"
-        },
-        {
-          "id": "zfx4nsf",
-          "name": "siti_hamidah",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Bandung",
-          "tim": "tunas_muda"
-        }
-      ]
-    },
-    {
       "id": 6,
       "date": "",
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "ujc6biu",
-          "name": "indra_maulana",
+          "id": "v6r6q3r",
+          "name": "rahmawati",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Surabaya",
-          "tim": "cahaya_timur"
+          "alamat": "Jakarta",
+          "tim": "bintang_barat"
         },
         {
-          "id": "zqk9c7d",
-          "name": "rina_andayani",
+          "id": "qirxxu6",
+          "name": "dedi_sutrisno",
           "score": 3,
           "gambar": "/person.png",
-          "alamat": "Depok",
-          "tim": "anggrek_fc"
+          "alamat": "Pekanbaru",
+          "tim": "pelita_jaya"
         }
       ]
     },
@@ -145,20 +145,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "4u4xtyo",
-          "name": "mega_sari",
+          "id": "istlg1k",
+          "name": "eko_saputra",
           "score": 3,
           "gambar": "/person.png",
-          "alamat": "Padang",
-          "tim": "maju_bersama"
+          "alamat": "Surabaya",
+          "tim": "makara_fc"
         },
         {
-          "id": "62t32l1",
-          "name": "hanif_ramadhan",
+          "id": "rfq3mje",
+          "name": "dini_saputri",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Lampung",
-          "tim": "awan_timur"
+          "alamat": "Lombok",
+          "tim": "mentari_fc"
         }
       ]
     },
@@ -168,204 +168,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "qirxxu6",
-          "name": "dedi_sutrisno",
+          "id": "zqk9c7d",
+          "name": "rina_andayani",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Pekanbaru",
-          "tim": "pelita_jaya"
-        },
-        {
-          "id": "etrz8sx",
-          "name": "galih_prayoga",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "wz704h9",
-          "name": "fitri_hidayah",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Bali",
-          "tim": "naga_timur"
-        },
-        {
-          "id": "v6r6q3r",
-          "name": "rahmawati",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Jakarta",
-          "tim": "bintang_barat"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "4cjw054",
-          "name": "wahyu_hidayat",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Palembang",
-          "tim": "rajawali_muda"
-        },
-        {
-          "id": "istlg1k",
-          "name": "eko_saputra",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Surabaya",
-          "tim": "makara_fc"
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "yq9jdjn",
-          "name": "rudi_hartono",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Yogyakarta",
-          "tim": "rajawali_putih"
-        },
-        {
-          "id": "5ug8dt6",
-          "name": "selvi_octaviana",
-          "score": 4,
-          "gambar": "/person.png",
-          "alamat": "Medan",
-          "tim": "tim_mawar"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "vldwj6i",
-          "name": "nurhayati",
-          "score": 2,
-          "gambar": "/person.png",
-          "alamat": "Semarang",
-          "tim": "sakura_team"
-        },
-        {
-          "id": "720l79h",
-          "name": "zahra_lestari",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Manado",
-          "tim": "bahari_fc"
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "rf9jpky",
-          "name": "ahmad_fauzan",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Bali",
-          "tim": "laskar_timur"
-        },
-        {
-          "id": "0sfxr0g",
-          "name": "abdul_rizki",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Bandung",
-          "tim": "garuda_fc"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "nt2uy3u",
-          "name": "aldi_firmansyah",
-          "score": 3,
           "gambar": "/person.png",
           "alamat": "Depok",
-          "tim": "nusantara_united"
-        },
-        {
-          "id": "ktotzij",
-          "name": "lia_melati",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Padang",
-          "tim": "singgalang_fc"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "ei3r00h",
-          "name": "firdaus_akbar",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Lampung",
-          "tim": "persada_tim"
+          "tim": "anggrek_fc"
         },
         {
           "id": "z45q167",
           "name": "nino_rama",
-          "score": 3,
+          "score": 2,
           "gambar": "/person.png",
           "alamat": "Pekanbaru",
           "tim": "tim_nusantara"
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "rfq3mje",
-          "name": "dini_saputri",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "mentari_fc"
-        },
-        {
-          "id": "jhaphrp",
-          "name": "maya_anindita",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Malang",
-          "tim": "cendrawasih_fc"
         }
       ]
     }

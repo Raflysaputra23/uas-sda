@@ -8,19 +8,6 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const baseUrl = request.nextUrl.origin;
   
-  if(token) {
-    const response = await fetch(`${baseUrl}/api/user`, {
-      headers: {
-        Cookie: `Session=${token.value}`,
-      }
-    });
-    const { message }: { message: string } = await response.json();
-    if(message !== "success") {
-      cookie.delete("Session");
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-  }
-
   if (path.startsWith("/login") || path.startsWith("/register")) {
     if (token) {
       return NextResponse.redirect(new URL("/dashboard", request.url));

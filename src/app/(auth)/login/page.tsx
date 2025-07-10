@@ -10,7 +10,7 @@ const Login = () => {
       <h1 className="text-center poppins-semibold text-2xl">Welcome</h1>
       <p className="text-center text-slate-700 text-sm mb-8">Please fill out the login form</p>
       <FormLogin />
-      <p className="text-center text-slate-700 text-sm my-4">
+      <p className="text-center text-slate-700 text-sm my-2">
         Belum punya akun?{" "}
         <Link
           href={"/register"}

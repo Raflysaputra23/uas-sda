@@ -7,12 +7,12 @@
       "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "",
-          "name": "",
+          "id": "yq9jdjn",
+          "name": "rudi_hartono",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "gambar": "/person.png",
+          "alamat": "Yogyakarta",
+          "tim": "rajawali_putih"
         },
         {
           "id": "",
@@ -38,12 +38,12 @@
           "tim": ""
         },
         {
-          "id": "",
-          "name": "",
+          "id": "eyg95c4",
+          "name": "diana_safitri",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
+          "gambar": "/person.png",
+          "alamat": "Semarang",
+          "tim": "tim_pelangi"
         }
       ]
     }

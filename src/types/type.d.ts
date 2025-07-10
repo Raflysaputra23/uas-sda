@@ -52,5 +52,12 @@ interface Team {
 export interface Seed {
   id: number;
   date: string;
+  roundTitle?: string;
   teams: Team[];
+}
+
+export interface Bracket {
+  id: string;
+  title: string;
+  seeds: Seed[];
 }

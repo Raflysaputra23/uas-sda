@@ -87,7 +87,7 @@ const FormPeserta = () => {
         </section>
       </section>
       <section className="my-4">
-        <ButtonLoading className="bg-slate-900 text-slate-200 cursor-pointer">
+        <ButtonLoading type="submit">
           Submit
         </ButtonLoading>
       </section>

@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Input } from "../ui/input";
 import React, { useActionState, useEffect, useState } from "react";
-import Link from "next/link";
 import { formValidationRegister } from "@/lib/formvalidation";
 import { MixinAlert } from "@/lib/alert";
 import { Textarea } from "../ui/textarea";
@@ -208,15 +207,6 @@ const FormRegister = () => {
           Daftar
         </ButtonLoading>
       </section>
-      <p className="text-center text-slate-700 text-sm my-4">
-        Sudah punya akun?{" "}
-        <Link
-          href={"/login"}
-          className="text-slate-900 poppins-semibold cursor-pointer"
-        >
-          Login
-        </Link>
-      </p>
     </form>
   );
 };

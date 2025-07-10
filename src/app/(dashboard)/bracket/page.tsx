@@ -13,9 +13,9 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import Loading from "@/app/loading";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Search } from "lucide-react";
+import ButtonMain from "@/components/ui/buttonMain";
 
 const CustomSeed = ({
   seed,
@@ -24,7 +24,6 @@ const CustomSeed = ({
   roundIndex,
 }: IRenderSeedProps) => {
   const Wrapper = false ? SingleLineSeed : Seed;
-  // console.log(roundIndex)
 
   return (
     <>
@@ -57,7 +56,7 @@ const CustomSeed = ({
               seed.roundTitle == "Repechange" &&
               "!bg-amber-800"
             } ${
-              rounds && rounds[roundIndex]?.title != "Winner" && "!bg-blue-500"
+              rounds && rounds[roundIndex]?.title != "Winner" && "!bg-red-500"
             } border !rounded-xl shadow relative ${
               seed.teams[0].name == "" &&
               rounds &&
@@ -115,7 +114,7 @@ const CustomSeed = ({
           }`}
         >
           <SeedItem
-            className={`!bg-red-500 border !rounded-xl shadow ${
+            className={`!bg-blue-500 border !rounded-xl shadow ${
               seed.teams[1].name == "" &&
               rounds &&
               rounds[roundIndex]?.title == "1" &&
@@ -299,181 +298,163 @@ const Bracket = () => {
     return <Loading />;
 
   return (
-    <>
-      <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
-        Babak Utama
-      </h1>
-      <section className="flex items-center gap-2 my-3">
-        {totalPesertaUtama &&
-          totalPesertaUtama.map((item: any) => {
-            return (
-              <Button key={item.id} asChild>
-                <Link
-                  className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                  href={`/ronde/${item.title}`}
-                >
-                  Ronde {item.title}
-                </Link>
-              </Button>
-            );
-          })}
-        {antrian &&
-          antrian.map((item: any) => {
-            if (item.bracket == "Ronde") {
-              return (
-                <Button key={item.id} asChild>
-                  <Link
-                    className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                    href={`/antrian/${item.title}`}
-                  >
-                    Antrian {item.title}
-                  </Link>
-                </Button>
-              );
-            }
-          })}
-      </section>
-      {pesertaUtama?.length > 1 ? (
-        <Brackets rounds={pesertaUtama} renderSeedComponent={CustomSeed} />
-      ) : (
-        <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
-          Belum ada babak utama <Search size={35} />
+    <section className="w-full overflow-x-hidden overflow-y-auto">
+      <section>
+        <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block shadow rounded-md text-slate-200">
+          Babak Utama
         </h1>
-      )}
-      <hr className="w-full h-1 bg-slate-900 my-5" />
-
-      <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
-        Repechange 1 & 2
-      </h1>
-      <section className="flex items-center gap-2 my-3">
-        {rondeRepechange &&
-          totalPesertaRepechange > 1 &&
-          rondeRepechange.map((item: any) => {
-            return (
-              <Button disabled={true} key={item.id} asChild>
-                <Link
-                  className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                  href={`/repechange/${item.title}`}
-                >
-                  Repechange {item.title}
-                </Link>
-              </Button>
-            );
-          })}
-        {antrian &&
-          antrian.map((item: any) => {
-            if (item.bracket == "Repechange") {
+        <section className="flex items-center gap-2 my-3">
+          {totalPesertaUtama &&
+            totalPesertaUtama.map((item: any) => {
               return (
-                <Button key={item.id} asChild>
-                  <Link
-                    className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                    href={`/antrian/${item.title}`}
-                  >
-                    Antrian {item.title}
-                  </Link>
-                </Button>
+                <Link key={item.id} href={`/ronde/${item.title}`}>
+                  <ButtonMain outline>Ronde {item.title}</ButtonMain>
+                </Link>
               );
-            }
-          })}
+            })}
+          {antrian &&
+            antrian.map((item: any) => {
+              if (item.bracket == "Ronde") {
+                return (
+                  <Link key={item.id} href={`/antrian/${item.title}`}>
+                    <ButtonMain>Antrian {item.title}</ButtonMain>
+                  </Link>
+                );
+              }
+            })}
+        </section>
+        <section className="overflow-auto mt-10">
+          {pesertaUtama?.length > 1 ? (
+            <Brackets rounds={pesertaUtama} renderSeedComponent={CustomSeed} />
+          ) : (
+            <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
+              Belum ada babak utama <Search size={35} />
+            </h1>
+          )}
+        </section>
       </section>
-      {totalPesertaRepechange > 1 ? (
-        <Brackets rounds={pesertaRepechange} renderSeedComponent={CustomSeed} />
-      ) : (
-        <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
-          Belum ada babak repechange 16 peserta <Search size={35} />
-        </h1>
-      )}
 
       <hr className="w-full h-1 bg-slate-900 my-5" />
-      <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
-        Repechange Atas
-      </h1>
-      <section className="flex items-center gap-2 my-3">
-        {totalPesertaRepechangeAtas &&
-          totalPesertaRepechangeAtas.map((item: any) => {
-            return (
-              <Button key={item.id} asChild>
-                <Link
-                  className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                  href={`/repechangeatas/${item.title}`}
-                >
-                  Repechange {item.title}
-                </Link>
-              </Button>
-            );
-          })}
-        {antrian &&
-          antrian.map((item: any) => {
-            if (item.bracket == "RepechangeAtas") {
-              return (
-                <Button key={item.id} asChild>
-                  <Link
-                    className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                    href={`/antrian/${item.title}`}
-                  >
-                    Antrian Repechange {item.title}
-                  </Link>
-                </Button>
-              );
-            }
-          })}
-      </section>
-      {pesertaRepechangeAtas?.length > 1 ? (
-        <Brackets
-          rounds={pesertaRepechangeAtas}
-          renderSeedComponent={CustomSeed}
-        />
-      ) : (
-        <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
-          Belum ada babak Repechange Atas <Search size={35} />
+
+      <section>
+        <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
+          Repechange 1 & 2
         </h1>
-      )}
+        <section className="flex items-center gap-2 my-3">
+          {rondeRepechange &&
+            totalPesertaRepechange > 1 &&
+            rondeRepechange.map((item: any) => {
+              return (
+                <Link key={item.id} href={`/repechange/${item.title}`}>
+                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
+                </Link>
+              );
+            })}
+          {antrian &&
+            antrian.map((item: any) => {
+              if (item.bracket == "Repechange") {
+                return (
+                  <Link key={item.id} href={`/antrian/${item.title}`}>
+                    <ButtonMain outline>Antrian {item.title}</ButtonMain>
+                  </Link>
+                );
+              }
+            })}
+        </section>
+        <section className="overflow-auto mt-10">
+          {totalPesertaRepechange > 1 ? (
+            <Brackets
+              rounds={pesertaRepechange}
+              renderSeedComponent={CustomSeed}
+            />
+          ) : (
+            <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
+              Belum ada babak repechange 16 peserta <Search size={35} />
+            </h1>
+          )}
+        </section>
+      </section>
 
       <hr className="w-full h-1 bg-slate-900 my-5" />
-      <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
-        Repechange Bawah
-      </h1>
-      <section className="flex items-center gap-2 my-3">
-        {totalPesertaRepechangeBawah &&
-          totalPesertaRepechangeBawah.map((item: any) => {
-            return (
-              <Button key={item.id} asChild>
-                <Link
-                  className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                  href={`/repechangebawah/${item.title}`}
-                >
-                  Repechange {item.title}
-                </Link>
-              </Button>
-            );
-          })}
-        {antrian &&
-          antrian.map((item: any) => {
-            if (item.bracket == "RepechangeBawah") {
-              return (
-                <Button key={item.id} asChild>
-                  <Link
-                    className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                    href={`/antrian/${item.title}`}
-                  >
-                    Antrian Repechange {item.title}
-                  </Link>
-                </Button>
-              );
-            }
-          })}
-      </section>
-      {pesertaRepechangeBawah?.length > 1 ? (
-        <Brackets
-          rounds={pesertaRepechangeBawah}
-          renderSeedComponent={CustomSeed}
-        />
-      ) : (
-        <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
-          Belum ada babak Repechange Bawah <Search size={35} />
+
+      <section>
+        <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
+          Repechange Atas
         </h1>
-      )}
-    </>
+        <section className="flex items-center gap-2 my-3">
+          {totalPesertaRepechangeAtas &&
+            totalPesertaRepechangeAtas.map((item: any) => {
+              return (
+                <Link key={item.id} href={`/repechangeatas/${item.title}`}>
+                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
+                </Link>
+              );
+            })}
+          {antrian &&
+            antrian.map((item: any) => {
+              if (item.bracket == "RepechangeAtas") {
+                return (
+                  <Link key={item.id} href={`/antrian/${item.title}`}>
+                    <ButtonMain outline>
+                      Antrian Repechange {item.title}
+                    </ButtonMain>
+                  </Link>
+                );
+              }
+            })}
+        </section>
+        <section className="overflow-auto mt-10">
+          {pesertaRepechangeAtas?.length > 1 ? (
+            <Brackets
+              rounds={pesertaRepechangeAtas}
+              renderSeedComponent={CustomSeed}
+            />
+          ) : (
+            <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
+              Belum ada babak Repechange Atas <Search size={35} />
+            </h1>
+          )}
+        </section>
+      </section>
+
+      <hr className="w-full h-1 bg-slate-900 my-5" />
+
+      <section>
+        <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
+          Repechange Bawah
+        </h1>
+        <section className="flex items-center gap-2 my-3">
+          {totalPesertaRepechangeBawah &&
+            totalPesertaRepechangeBawah.map((item: any) => {
+              return (
+                <Link key={item.id} href={`/repechangebawah/${item.title}`}>
+                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
+                </Link>
+              );
+            })}
+          {antrian &&
+            antrian.map((item: any) => {
+              if (item.bracket == "RepechangeBawah") {
+                return (
+                  <Link key={item.id} href={`/antrian/${item.title}`}>
+                    <ButtonMain outline>Antrian Repechange {item.title}</ButtonMain>
+                  </Link>
+                );
+              }
+            })}
+        </section>
+        {pesertaRepechangeBawah?.length > 1 ? (
+          <Brackets
+            rounds={pesertaRepechangeBawah}
+            renderSeedComponent={CustomSeed}
+          />
+        ) : (
+          <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
+            Belum ada babak Repechange Bawah <Search size={35} />
+          </h1>
+        )}
+      </section>
+    </section>
   );
 };
 

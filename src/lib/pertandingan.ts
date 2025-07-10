@@ -107,7 +107,7 @@ const resetData = (namaFolder: string, id?: string) => {
   if (message === "success") {
     for (const file of data) {
       const namaFile = file.split(".")[0];
-      if(namaFile === id) continue;
+      if (namaFile === id) continue;
       deleteData(`${namaFolder}:${namaFile}`);
     }
   }
@@ -175,13 +175,13 @@ const createBracket = async (peserta: User[]) => {
   const pesertaMain = [...users];
   let pesertaBay: User[] = [];
   if (totalBay > 0) {
-    pesertaBay = pesertaMain.splice(-totalBay);
-    const acakPeserta: User[] = pesertaBay.sort(() => Math.random() - 0.5);
-    const groupUsers = urutkanByAlamat(acakPeserta);
-    let [atas, bawah] = bagiPeserta(groupUsers);
-    atas = shuffle(atas);
-    bawah = shuffle(bawah);
-    pesertaBay = [...atas, ...bawah];
+    const jumlahAtas = Math.ceil(totalBay / 2);
+    const jumlahBawah = totalBay - jumlahAtas;
+
+    const pesertaBayAtas: User[] = pesertaMain.splice(0, jumlahAtas);
+    const pesertaBayBawah: User[] = jumlahBawah > 0 ? pesertaMain.splice(-jumlahBawah) : [];
+
+    pesertaBay = [...pesertaBayAtas, ...pesertaBayBawah];
   }
 
   // Buat semua bracket ronde
@@ -219,10 +219,21 @@ const createBracket = async (peserta: User[]) => {
 
   // ISI ROUND 1 (dari pesertaMain)
   const round1 = bracket[0];
+  const jumlahSeedRound1 = round1.seeds.length;
+  const mid = Math.floor(jumlahSeedRound1 / 2);
+  const seedOrder: number[] = [];
+
+  for (let offset = 0; seedOrder.length < pesertaMain.length / 2; offset++) {
+    if (mid - offset >= 0) seedOrder.push(mid - offset);
+    if (offset !== 0 && mid + offset < jumlahSeedRound1)
+      seedOrder.push(mid + offset);
+  }
+
   for (let i = 0; i < pesertaMain.length; i += 2) {
     const team1 = pesertaMain[i];
     const team2 = pesertaMain[i + 1];
-    round1.seeds[Math.floor(i / 2)].teams = [
+    const seedIndex = seedOrder[Math.floor(i / 2)];
+    round1.seeds[seedIndex].teams = [
       {
         id: team1?.id,
         name: team1?.username || "",
@@ -244,27 +255,38 @@ const createBracket = async (peserta: User[]) => {
 
   // ISI BAY kE ROUND 2
   const round2 = bracket[1];
-  for (let i = 0; i < pesertaBay.length; i++) {
-    for (let j = round2.seeds.length - 1; j >= 0; j--) {
-      const seed = round2.seeds[j];
+  const jumlahSeedRound2 = round2.seeds.length;
+  const jumlahPesertaBay = Math.ceil(pesertaBay.length / 2);
 
-      // ISI teams[1] dulu baru teams[0]
-      if (seed.teams[1].name === "") {
-        seed.teams[1].id = pesertaBay[i].id;
-        seed.teams[1].name = pesertaBay[i].username;
-        seed.teams[1].gambar = pesertaBay[i].gambar;
-        seed.teams[1].tim = pesertaBay[i].namaTim;
-        seed.teams[1].alamat = pesertaBay[i].alamat;
-        break;
-      } else if (seed.teams[0].name === "") {
-        seed.teams[0].id = pesertaBay[i].id;
-        seed.teams[0].name = pesertaBay[i].username;
-        seed.teams[0].gambar = pesertaBay[i].gambar;
-        seed.teams[0].tim = pesertaBay[i].namaTim;
-        seed.teams[0].alamat = pesertaBay[i].alamat;
-        break;
-      }
-    }
+  const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
+  const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
+  console.log("Peserta Bay Bawah:",pesertaBayBawah);
+  for (let i = 0; i < pesertaBayAtas.length; i++) {
+    const seed = round2.seeds[Math.floor(i / 2)];
+    const timIndex = i % 2;
+    seed.teams[timIndex] = {
+      id: pesertaBayAtas[i].id,
+      name: pesertaBayAtas[i].username,
+      score: 0,
+      gambar: pesertaBayAtas[i].gambar,
+      alamat: pesertaBayAtas[i].alamat,
+      tim: pesertaBayAtas[i].namaTim,
+    };
+  }
+
+  // 💠 ISI BAGIAN BAWAH
+  for (let i = 0; i < pesertaBayBawah.length; i++) {
+    const seed = round2.seeds[jumlahSeedRound2 - 1 - Math.floor(i / 2)];
+    const timIndex = i % 2 == 0 ? 1 : 0;
+
+    seed.teams[timIndex] = {
+      id: pesertaBayBawah[i].id,
+      name: pesertaBayBawah[i].username,
+      score: 0,
+      gambar: pesertaBayBawah[i].gambar,
+      alamat: pesertaBayBawah[i].alamat,
+      tim: pesertaBayBawah[i].namaTim,
+    };
   }
 
   try {
@@ -579,15 +601,26 @@ const updateBracket = (peserta: Seed[], ronde: string, folder: string) => {
     }
   }
 
+  console.log("Folder:", folder);
+  console.log("CurrentRonde:", currentRonde);
+  console.log("NextRonde:", nextRonde);
+
   try {
     writeData(`${folder}:${nextRonde}`, rondeBerikutnya);
-    if (currentRonde === "4" && antrian.length <= 0) {
+    if (
+      currentRonde === "4" &&
+      folder === "Ronde" &&
+      antrian.length <= 0 &&
+      dataPeserta.length > 16
+    ) {
+      console.info("Repechange Atas & Bawah Dibuat");
       getRepechangeParticipantsDouble();
     } else if (
-      nextRonde === "Winner" &&
-      currentRonde != "4" &&
-      folder != "Repechange"
+      currentRonde === "Finals" &&
+      folder === "Ronde" &&
+      dataPeserta.length <= 16
     ) {
+      console.info("Repechange 16 Peserta Dibuat");
       getRepechangeParticipants();
       return "winner";
     }
@@ -603,12 +636,21 @@ const getRepechangeParticipants = () => {
 
   if (finalRonde.message !== "success") return [];
 
-  const finalSeeds: Seed[] = finalRonde.data.seeds;
-  const finalistNames: string[] = finalSeeds.flatMap((seed) =>
-    seed.teams.map((t) => t.id).filter(Boolean)
-  );
+  const finalSeeds: Team[] = finalRonde.data.seeds[0].teams;
+  const half = Math.ceil(finalSeeds.length / 2);
 
-  const defeatedPlayers: Map<string, { id: string, ronde: string }> = new Map();
+  // Finalis Atas
+  const finalisAtas: string[] = finalSeeds.slice(0, half).map((team: Team) => {
+    return team.id;
+  });
+
+  // Finalis Bawah
+  const finalisBawah: string[] = finalSeeds.slice(half).map((team: Team) => {
+    return team.id
+  });
+
+  const defeatedPlayersAtas: Map<string, { id: string; ronde: string }> = new Map();
+  const defeatedPlayersBawah: Map<string, { id: string; ronde: string }> = new Map();
 
   // Cek semua ronde sebelumnya (kecuali Winner dan Finals)
   const kecuali = ["Winner", "Finals"];
@@ -618,35 +660,64 @@ const getRepechangeParticipants = () => {
   for (const ronde of allRounds) {
     const { message, data } = getData(`Ronde:${ronde}`);
     if (message !== "success") continue;
-
     const seeds: Seed[] = data.seeds;
-    for (const seed of seeds) {
+    const half = Math.ceil(seeds.length / 2);
+    const pesertaAtas = seeds.slice(0, half);
+    const pesertaBawah = seeds.slice(half);
+
+    // Peserta Atas
+    for (const seed of pesertaAtas) {
       const [team1, team2] = seed.teams;
       if (!team1?.id || !team2?.id) continue;
 
       team1.ronde = ronde;
       team2.ronde = ronde;
-      const pemenang = team1.score > team2.score ? team1.id : team2.id;
-      const kalah = team1.score > team2.score ? team2.id : team1.id;
+      const pemenang = team1.score > team2.score ? team1 : team2;
+      const kalah = team1.score > team2.score ? team2 : team1;
 
-      if (finalistNames.includes(pemenang)) {
-        defeatedPlayers.set(kalah, { id: kalah, ronde: ronde });
+      if (finalisAtas.includes(pemenang.id)) {
+        defeatedPlayersAtas.set(kalah.id, { id: kalah.id, ronde: ronde });
+      }
+    }
+
+    // Peserta Bawah
+    for (const seed of pesertaBawah) {
+      const [team1, team2] = seed.teams;
+      if (!team1?.id || !team2?.id) continue;
+
+      team1.ronde = ronde;
+      team2.ronde = ronde;
+      const pemenang = team1.score > team2.score ? team1 : team2;
+      const kalah = team1.score > team2.score ? team2 : team1;
+
+      if (finalisBawah.includes(pemenang.id)) {
+        defeatedPlayersBawah.set(kalah.id, { id: kalah.id, ronde: ronde });
       }
     }
   }
 
   const { data: semuaUser } = getData("User");
 
-  const pesertaRepechange = semuaUser.filter((user: User) => {
-     const data = defeatedPlayers.get(user.id);
-     if (data?.ronde && data?.id === user.id) {
+  
+  const pesertaRepechangeAtas = semuaUser.filter((user: User) => {
+    const data = defeatedPlayersAtas.get(user.id);
+    if (data?.ronde && data?.id === user.id) {
       user.ronde = data?.ronde;
       return true;
     }
     return false;
   });
-
-  createRepechange(pesertaRepechange, "Repechange");
+  
+  const pesertaRepechangeBawah = semuaUser.filter((user: User) => {
+    const data = defeatedPlayersBawah.get(user.id);
+    if (data?.ronde && data?.id === user.id) {
+      user.ronde = data?.ronde;
+      return true;
+    }
+    return false;
+  });
+  
+  createRepechange([...pesertaRepechangeAtas.sort((a: User, b: User) => Number(b.ronde) - Number(a.ronde)), ...pesertaRepechangeBawah.sort((a: User, b: User) => Number(a.ronde) - Number(b.ronde))], "Repechange");
 };
 
 const getRepechangeParticipantsDouble = () => {
@@ -850,7 +921,7 @@ const getRepechangeParticipantsDouble = () => {
 };
 
 const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
-  const peserta = pesertaRepechange.sort((a: any, b: any) => Number(a.ronde) - (b.ronde));
+  const peserta = pesertaRepechange;
   const totalPeserta = peserta.length;
   const totalSlot = RoundRobbin(totalPeserta); // ex: 5 → 8
   const totalBay = totalSlot - totalPeserta;
@@ -858,7 +929,15 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
 
   const pesertaMain = [...peserta];
   let pesertaBay: User[] = [];
-  if (totalBay != 0) pesertaBay = pesertaMain.splice(-totalBay);
+  if (totalBay != 0) {
+    const jumlahAtas = Math.ceil(totalBay / 2);
+    const jumlahBawah = totalBay - jumlahAtas;
+
+    const pesertaBayAtas: User[] = pesertaMain.splice(0, jumlahAtas);
+    const pesertaBayBawah: User[] = jumlahBawah > 0 ? pesertaMain.splice(-jumlahBawah) : []
+
+    pesertaBay = [...pesertaBayAtas, ...pesertaBayBawah];
+  };
 
   // Buat semua bracket ronde
   const bracket: any[] = [];
@@ -898,10 +977,10 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
   }
 
   if (roundTitle === "RepechangeAtas" || roundTitle === "RepechangeBawah") {
-    const pesertaR1 = peserta.sort((a: any, b: any) => Number(b.ronde) - (a.ronde)).filter(
-      (p: any) => p.ronde === "1" || p.ronde === "2"
-    );
-    
+    const pesertaR1 = peserta
+      .sort((a: any, b: any) => Number(b.ronde) - a.ronde)
+      .filter((p: any) => p.ronde === "1" || p.ronde === "2");
+
     const pesertaR2 = peserta.filter((p: any) => p.ronde === "3");
     const pesertaR4 = peserta.filter((p: any) => p.ronde === "4");
     let pesertaIndexR1 = 0;
@@ -953,12 +1032,23 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
   } else {
     // ISI ROUND 1 (dari pesertaMain)
     const round1 = bracket[0];
+    const jumlahSeedRound1 = round1.seeds.length;
+    const mid = Math.floor(jumlahSeedRound1 / 2);
+    const seedOrder: number[] = [];
+
+    for (let offset = 0; seedOrder.length < pesertaMain.length / 2; offset++) {
+      if (mid - offset >= 0) seedOrder.push(mid - offset);
+      if (offset !== 0 && mid + offset < jumlahSeedRound1)
+        seedOrder.push(mid + offset);
+    }
+
     for (let i = 0; i < pesertaMain.length; i += 2) {
       const team1 = pesertaMain[i];
       const team2 = pesertaMain[i + 1];
-      round1.seeds[Math.floor(i / 2)].teams = [
+      const seedIndex = seedOrder[Math.floor(i / 2)];
+      round1.seeds[seedIndex].teams = [
         {
-          id: team1?.id || "",
+          id: team1?.id,
           name: team1?.username || "",
           score: 0,
           gambar: team1?.gambar || "",
@@ -966,7 +1056,7 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
           tim: team1?.namaTim || "",
         },
         {
-          id: team2?.id || "",
+          id: team2?.id,
           name: team2?.username || "",
           score: 0,
           gambar: team2?.gambar || "",
@@ -978,27 +1068,37 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
 
     // ISI BAY ke ROUND 2
     const round2 = bracket[1];
-    for (let i = 0; i < pesertaBay.length; i++) {
-      for (let j = round2.seeds.length - 1; j >= 0; j--) {
-        const seed = round2.seeds[j];
+    const jumlahSeedRound2 = round2.seeds.length;
+    const jumlahPesertaBay = Math.ceil(pesertaBay.length / 2);
 
-        // ISI teams[1] dulu baru teams[0]
-        if (seed.teams[1].name === "") {
-          seed.teams[1].id = pesertaBay[i].id;
-          seed.teams[1].name = pesertaBay[i].username;
-          seed.teams[1].gambar = pesertaBay[i].gambar;
-          seed.teams[1].tim = pesertaBay[i].namaTim;
-          seed.teams[1].alamat = pesertaBay[i].alamat;
-          break;
-        } else if (seed.teams[0].name === "") {
-          seed.teams[0].id = pesertaBay[i].id;
-          seed.teams[0].name = pesertaBay[i].username;
-          seed.teams[0].gambar = pesertaBay[i].gambar;
-          seed.teams[0].tim = pesertaBay[i].namaTim;
-          seed.teams[0].alamat = pesertaBay[i].alamat;
-          break;
-        }
-      }
+    const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
+    const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
+    for (let i = 0; i < pesertaBayAtas.length; i++) {
+      const seed = round2.seeds[Math.floor(i / 2)];
+      const timIndex = i % 2;
+      seed.teams[timIndex] = {
+        id: pesertaBayAtas[i].id,
+        name: pesertaBayAtas[i].username,
+        score: 0,
+        gambar: pesertaBayAtas[i].gambar,
+        alamat: pesertaBayAtas[i].alamat,
+        tim: pesertaBayAtas[i].namaTim,
+      };
+    }
+
+    // 💠 ISI BAGIAN BAWAH
+    for (let i = 0; i < pesertaBayBawah.length; i++) {
+      const seed = round2.seeds[jumlahSeedRound2 - 1 - Math.floor(i / 2)];
+      const timIndex = i % 2 == 0 ? 1 : 0;
+
+      seed.teams[timIndex] = {
+        id: pesertaBayBawah[i].id,
+        name: pesertaBayBawah[i].username,
+        score: 0,
+        gambar: pesertaBayBawah[i].gambar,
+        alamat: pesertaBayBawah[i].alamat,
+        tim: pesertaBayBawah[i].namaTim,
+      };
     }
   }
 
@@ -1014,9 +1114,9 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
 };
 
 const resetDatas = async (folder: string[]) => {
-    const cookie = await cookies();
-    const token = cookie.get("Session");
-    const { data: user }: { data: User } = getData(`Session:${token?.value}`);
+  const cookie = await cookies();
+  const token = cookie.get("Session");
+  const { data: user }: { data: User } = getData(`Session:${token?.value}`);
 
   for (const f of folder) {
     resetData(f, user.id);

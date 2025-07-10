@@ -32,7 +32,7 @@ const ConfirmAlert = async (
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Ya, keluar!",
+    confirmButtonText: "Ya, Lanjutkan!",
   });
 
   return response.isConfirmed;

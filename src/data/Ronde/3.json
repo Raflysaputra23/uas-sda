@@ -7,20 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "r5etph6",
-          "name": "farhan_syahputra",
-          "score": 4,
+          "id": "jhaphrp",
+          "name": "maya_anindita",
+          "score": 2,
           "gambar": "/person.png",
-          "alamat": "Palembang",
-          "tim": "sriwijaya_fc"
+          "alamat": "Malang",
+          "tim": "cendrawasih_fc"
         },
         {
-          "id": "3fgcghr",
-          "name": "galih_prayoga",
+          "id": "yq9jdjn",
+          "name": "rudi_hartono",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
+          "alamat": "Yogyakarta",
+          "tim": "rajawali_putih"
         }
       ]
     },
@@ -30,66 +30,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "zfx4nsf",
-          "name": "siti_hamidah",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Bandung",
-          "tim": "tunas_muda"
-        },
-        {
-          "id": "etrz8sx",
-          "name": "galih_prayoga",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "v6r6q3r",
-          "name": "rahmawati",
-          "score": 3,
-          "gambar": "/person.png",
-          "alamat": "Jakarta",
-          "tim": "bintang_barat"
-        },
-        {
-          "id": "vldwj6i",
-          "name": "nurhayati",
+          "id": "eyg95c4",
+          "name": "diana_safitri",
           "score": 0,
           "gambar": "/person.png",
           "alamat": "Semarang",
-          "tim": "sakura_team"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "0sfxr0g",
-          "name": "abdul_rizki",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Bandung",
-          "tim": "garuda_fc"
+          "tim": "tim_pelangi"
         },
         {
-          "id": "jhaphrp",
-          "name": "maya_anindita",
-          "score": 3,
+          "id": "z45q167",
+          "name": "nino_rama",
+          "score": 2,
           "gambar": "/person.png",
-          "alamat": "Malang",
-          "tim": "cendrawasih_fc"
+          "alamat": "Pekanbaru",
+          "tim": "tim_nusantara"
         }
       ]
     }

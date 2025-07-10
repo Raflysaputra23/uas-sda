@@ -7,20 +7,20 @@
       "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "hgmqmat",
-          "name": "lutfiah_nabila",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Bogor",
-          "tim": "melati_fc"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         },
         {
-          "id": "rfq3mje",
-          "name": "dini_saputri",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "mentari_fc"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         }
       ]
     },
@@ -30,20 +30,20 @@
       "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "5gxava5",
-          "name": "budi_santoso",
+          "id": "zqk9c7d",
+          "name": "rina_andayani",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "Depok",
+          "tim": "anggrek_fc"
+        },
+        {
+          "id": "istlg1k",
+          "name": "eko_saputra",
           "score": 0,
           "gambar": "/person.png",
           "alamat": "Surabaya",
-          "tim": "elang_timur"
-        },
-        {
-          "id": "z45q167",
-          "name": "nino_rama",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Pekanbaru",
-          "tim": "tim_nusantara"
+          "tim": "makara_fc"
         }
       ]
     },
@@ -53,20 +53,20 @@
       "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "0sfxr0g",
-          "name": "abdul_rizki",
+          "id": "dadadfa",
+          "name": "Lili ramadhani",
           "score": 0,
           "gambar": "/person.png",
           "alamat": "Bandung",
-          "tim": "garuda_fc"
+          "tim": "lampung_fc"
         },
         {
-          "id": "3fgcghr",
-          "name": "galih_prayoga",
+          "id": "zfx4nsf",
+          "name": "siti_hamidah",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
+          "alamat": "Bandung",
+          "tim": "tunas_muda"
         }
       ]
     },
@@ -76,20 +76,20 @@
       "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "etrz8sx",
-          "name": "galih_prayoga",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Lombok",
-          "tim": "tim_semeru"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         },
         {
-          "id": "v6r6q3r",
-          "name": "rahmawati",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "Jakarta",
-          "tim": "bintang_barat"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         }
       ]
     }

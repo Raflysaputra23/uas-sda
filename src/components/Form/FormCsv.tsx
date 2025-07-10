@@ -10,7 +10,7 @@ import React, {
 import Papa from "papaparse";
 import { formValidationPendaftaranCsv } from "@/lib/formvalidation";
 import { MixinAlert } from "@/lib/alert";
-import { Button } from "../ui/button";
+import ButtonMain from "../ui/buttonMain";
 
 interface FileData {
   name: string;
@@ -141,9 +141,9 @@ const FormCsv = () => {
         </section>
       </section>
       <section className="my-4">
-        <Button disabled={loading || !file} type="submit" className="bg-slate-900 disabled:bg-slate-800/50 text-slate-200 w-full flex items-center gap-2">
+        <ButtonMain disabled={loading || !file} type="submit" bgColor="black" className="w-full">
           Submit {loading ?? <Loader className="animate-spin" />}
-        </Button>
+        </ButtonMain>
       </section>
     </form>
   );

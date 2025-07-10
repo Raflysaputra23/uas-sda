@@ -1,21 +1,21 @@
 [
   [
     {
-      "id": "r5etph6",
-      "name": "farhan_syahputra",
-      "score": 3,
-      "gambar": "/person.png",
-      "alamat": "Palembang",
-      "tim": "sriwijaya_fc",
-      "juara": "1"
-    },
-    {
       "id": "jhaphrp",
       "name": "maya_anindita",
-      "score": 0,
+      "score": 2,
       "gambar": "/person.png",
       "alamat": "Malang",
       "tim": "cendrawasih_fc",
+      "juara": "1"
+    },
+    {
+      "id": "z45q167",
+      "name": "nino_rama",
+      "score": 0,
+      "gambar": "/person.png",
+      "alamat": "Pekanbaru",
+      "tim": "tim_nusantara",
       "juara": "2"
     }
   ]

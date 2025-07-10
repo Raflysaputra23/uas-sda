@@ -1,5 +1,5 @@
 import FormPendaftaran from "@/components/Form/FormPendaftaran";
-import { Button } from "@/components/ui/button";
+import ButtonMain from "@/components/ui/buttonMain";
 import ButtonMulai from "@/components/ui/buttonMulai";
 import ButtonReset from "@/components/ui/buttonReset";
 import Card from "@/components/ui/card";
@@ -11,11 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { getData } from "@/lib/database";
 import { User } from "@/types/type";
 import { Plus, Search } from "lucide-react";
@@ -38,23 +33,31 @@ const DataPeserta = async () => {
           Data Peserta
         </h1>
         <section className="flex items-center gap-4">
-          <ButtonReset folder={["User"]} > Reset Peserta </ButtonReset>
-          <ButtonReset folder={["Ronde","Repechange","RepechangeAtas","RepechangeBawah","Antrian","Pemenang"]} > Reset Bracket </ButtonReset>
+          <ButtonReset tooltip="Reset Peserta" folder={["User"]}>
+            <span className="hidden lg:inline-block">Reset Peserta</span>
+          </ButtonReset>
+
+          <ButtonReset
+            folder={[
+              "Ronde",
+              "Repechange",
+              "RepechangeAtas",
+              "RepechangeBawah",
+              "Antrian",
+              "Pemenang",
+            ]}
+            tooltip="Reset Bracket"
+          >
+            <span className="hidden lg:inline-block">Reset Bracket</span>
+          </ButtonReset>
           <Dialog>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <DialogTrigger asChild>
-                  <Button
-                    className={`bg-blue-500 shadow text-slate-200 cursor-pointer`}
-                  >
-                    Tambah <Plus />
-                  </Button>
-                </DialogTrigger>
-              </TooltipTrigger>
-              <TooltipContent className="bg-slate-100 shadow">
-                <p>Tambah Peserta</p>
-              </TooltipContent>
-            </Tooltip>
+            <DialogTrigger asChild>
+              <ButtonMain tooltip="Tambah Peserta">
+                <span className="hidden lg:inline-block">Tambah</span>
+                <Plus />
+              </ButtonMain>
+            </DialogTrigger>
+
             <DialogContent className="bg-slate-100 shadow !max-w-96 w-[95%]">
               <DialogHeader>
                 <DialogTitle>Tambah Peserta</DialogTitle>
@@ -67,14 +70,18 @@ const DataPeserta = async () => {
           </Dialog>
         </section>
       </header>
-      <section>
-        <h1>Total Peserta: {peserta.length}</h1>
+      <section className="flex items-center gap-3">
+        <h1 className="bg-blue-500 text-slate-100 rounded-md px-4 p-2 text-sm">Total Peserta: <span className="font-semibold">{peserta.length}</span></h1>
       </section>
       <section className="mt-5 flex flex-wrap gap-5 justify-center lg:justify-start">
         {peserta.map((item: any, index: any) => (
           <Card key={index} user={user} peserta={item} />
         ))}
-        {peserta.length === 0 && <h1 className="text-2xl flex items-center justify-center w-full gap-2">Belum Ada Peserta <Search /></h1>}
+        {peserta.length === 0 && (
+          <h1 className="text-2xl flex items-center justify-center w-full gap-2">
+            Belum Ada Peserta <Search />
+          </h1>
+        )}
       </section>
       <ButtonMulai peserta={peserta} />
     </section>

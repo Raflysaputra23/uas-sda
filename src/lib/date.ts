@@ -7,7 +7,7 @@ const currentDateTime = () => {
   const menit = String(sekarang.getMinutes()).padStart(2, "0");
   const detik = String(sekarang.getSeconds()).padStart(2, "0");
 
-  return `${tahun}-${bulan}-${tanggal} ${jam}:${menit}:${detik}`;
+  return `${jam}:${menit}:${detik} ${tanggal}-${bulan}-${tahun} `;
 };
 
 export default currentDateTime;
