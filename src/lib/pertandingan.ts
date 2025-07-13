@@ -89,40 +89,126 @@ const urutkanByAlamat = (peserta: User[]) => {
   return Object.values(alamat);
 };
 
-// const pesertaKalahDari = (user1: string, user2: string, ronde: string[]) => {
-//   const rondeList = ronde;
-//   for (const rondeName of rondeList) {
-//     const { data, message } = getData(rondeName);
-//     if (message !== "success") continue;
-
-//     for (const seed of data.seeds) {
-//       const [a, b] = seed.teams;
-//       if (!a.name || !b.name) continue;
-
-//       const pemenang = a.score > b.score ? a : b;
-//       const kalah = a.score > b.score ? b : a;
-
-//       // Jika kalah adalah username dan pemenangnya adalah lawan
-//       if (kalah.name === user1 && pemenang.name === user2) {
-//         return { status: true, pemenang: user2, kalah: user1 };
-//       }
-//     }
-//   }
-//   return { status: false, pemenang: user1, kalah: user2 };
-// };
-
-// FUNGSI BAGI PESERTA ATAS BAWAH
-const bagiPeserta = (GroupPeserta: User[][]) => {
-  const atas: User[] = [];
-  const bawah: User[] = [];
-  GroupPeserta.forEach((group) => {
-    const half = Math.ceil(group.length / 2);
-    atas.push(...group.slice(0, half));
-    bawah.push(...group.slice(half));
+const urutkanByTim = (peserta: User[], isUsed: Set<string>) => {
+  const tim: { [key: string]: User[] } = {};
+  peserta.forEach((item) => {
+    if (isUsed.has(item.id)) return;
+    const key = item.namaTim.toLowerCase();
+    if (!tim[key]) tim[key] = [];
+    tim[key].push(item);
   });
 
-  return [atas, bawah];
-};
+  return Object.values(tim);
+}
+
+function urutkanAtasdanBawah(peserta: User[]) {
+  const atas: User[] = [];
+  const bawah: User[] = [];
+  const isUsed: Set<string> = new Set();
+
+  // 1. Grup berdasarkan alamat
+  const grupAlamat = urutkanByAlamat(peserta);
+
+  // Fungsi bantu untuk membagi ke atas dan bawah secara bergantian
+  const bagiRata = (grup: User[]) => {
+    // Urutkan agar konsisten (boleh disesuaikan)
+    grup.sort((a, b) => a.username.localeCompare(b.username));
+
+    const total = grup.length;
+    const jumlahAtas = Math.ceil(total / 2);
+
+    grup.forEach((user, index) => {
+      if (isUsed.has(user.id)) return;
+      if (index < jumlahAtas) atas.push(user);
+      else bawah.push(user);
+      isUsed.add(user.id);
+    });
+  };
+
+  // 2. Tempatkan grup berdasarkan alamat
+  for (const grup of Object.values(grupAlamat)) {
+    bagiRata(grup);
+  }
+
+  // 3. Grup berdasarkan nama tim untuk sisa yang belum digunakan
+  const grupTim = urutkanByTim(peserta, isUsed);
+
+  // 4. Tempatkan berdasarkan nama tim
+  for (const grup of Object.values(grupTim)) {
+    bagiRata(grup);
+  }
+
+  return { atas, bawah };
+}
+
+
+function urutkanDenganPrioritasAlamatDanTim(peserta: User[]) {
+  const result = new Array(peserta.length).fill(null);
+
+  const isUsed: Set<string> = new Set(); 
+
+  // Langkah 1: Grup berdasarkan alamat
+  const grupAlamat = urutkanByAlamat(peserta);
+
+  // Fungsi bantu untuk menaruh grup ke result di indeks yang seragam
+  const tempatkanDenganJarak = (grup: User[]) => {
+    let lastIndex = -2;
+    for (const user of grup) {
+      let found = false;
+      for (let i = 0; i < result.length; i++) {
+        if (
+          result[i] === null &&
+          (i - lastIndex) > 1 
+        ) {
+          result[i] = user;
+          isUsed.add(user.id);
+          lastIndex = i;
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        for (let i = 0; i < result.length; i++) {
+          if (result[i] === null) {
+            result[i] = user;
+            isUsed.add(user.id);
+            lastIndex = i;
+            break;
+          }
+        }
+      }
+    }
+  };
+
+  // Proses grup alamat
+  for (const group of Object.values(grupAlamat)) {
+    tempatkanDenganJarak(group);
+  }
+
+  // Langkah 2: Grup berdasarkan namaTim (yang belum ditempatkan)
+  const grupNamaTim = urutkanByTim(peserta, isUsed);
+
+  // Proses grup nama tim
+  for (const group of Object.values(grupNamaTim)) {
+    tempatkanDenganJarak(group);
+  }
+
+  return result;
+}
+
+
+// FUNGSI BAGI PESERTA ATAS BAWAH
+// const bagiPeserta = (GroupPeserta: User[][]) => {
+//   const atas: User[] = [];
+//   const bawah: User[] = [];
+//   GroupPeserta.forEach((group) => {
+//     const half = Math.ceil(group.length / 2);
+//     atas.push(...group.slice(0, half));
+//     bawah.push(...group.slice(half));
+//   });
+
+//   return [atas, bawah];
+// };
 
 // FUNGSI UNTUK MERESET SEMUA DATA
 const resetData = (namaFolder: string, id?: string) => {
@@ -180,10 +266,8 @@ const createBracket = async (peserta: User[]) => {
   // ACAK PESERTA
   const acakPeserta: User[] = peserta.sort(() => Math.random() - 0.5);
 
-  // KELOMPOKAN PESERTA BERDASARKAN ALAMAT
-  const groupUsers = urutkanByAlamat(acakPeserta);
   // BAGI PESERTA ATAS DAN BAWAH
-  let [atas, bawah] = bagiPeserta(groupUsers);
+  let {atas, bawah} = urutkanAtasdanBawah(acakPeserta);
   atas = shuffle(atas);
   bawah = shuffle(bawah);
   const users: User[] = [...atas, ...bawah];
@@ -195,7 +279,7 @@ const createBracket = async (peserta: User[]) => {
   const totalRonde = Math.log2(totalSlot) + 1;
 
   // Masukkan peserta jika ada yang nge bye
-  const pesertaMain = [...users];
+  let pesertaMain = [...users];
   let pesertaBay: User[] = [];
   if (totalBay > 0) {
     const jumlahAtas = Math.ceil(totalBay / 2);
@@ -206,6 +290,8 @@ const createBracket = async (peserta: User[]) => {
 
     pesertaBay = [...pesertaBayAtas, ...pesertaBayBawah];
   }
+
+  pesertaMain = urutkanDenganPrioritasAlamatDanTim(pesertaMain);
 
   // Buat semua bracket ronde
   const bracket: any[] = [];
@@ -239,9 +325,6 @@ const createBracket = async (peserta: User[]) => {
       teams: [{ id: "", name: "", score: 0, gambar: "", alamat: "", tim: "" }],
     };
   }
-
-  console.log("Peserta Main: ", pesertaMain);
-  console.log("Peserta Bay: ", pesertaBay);
 
   const round1 = bracket[0];
   const seedOrder: number[] = generateSeedOrder(totalPeserta);
@@ -288,8 +371,6 @@ const createBracket = async (peserta: User[]) => {
     };
   }
 
-  console.log("Seed Order Bay: ", seedOrderBay);
-  console.log('Seed Order Main: ', seedOrder);
   // const jumlahSeedRound2 = round2.seeds.length;
   // const jumlahPesertaBay = Math.ceil(pesertaBay.length / 2);
 

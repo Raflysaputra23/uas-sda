@@ -195,7 +195,7 @@ const FormRegister = () => {
             Mengecek peserta <RefreshCcw size={15} className="animate-spin" />
           </p>
         }
-        {data && data.data.length >= 16 &&
+        {data && data.data.length >= 32 &&
           <p className=" text-red-500 text-sm mb-4 text-center">
             Pendaftaran sudah ditutup
           </p>

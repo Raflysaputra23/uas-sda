@@ -15,7 +15,7 @@ const Dashboard = async () => {
   return (
     <section className="mt-5 lg:p-5 lg:ps-10">
       <h1 className={`text-3xl lg:text-4xl font-bold tillana-regular text-center lg:text-start mb-5 text-dump`}>Bracket Competition</h1>
-      <Alert icon="info" header="Informasi"><p className="text-sm">Halo, <span className="poppins-semibold">{user.username}</span> Selamat datang di Bracket Competition, Anda sudah terdaftar sebagai peserta, Pertandingan akan dimulai ketika sudah ada 16 peserta yang sudah mendaftar, Peserta akan diacak secara random, Dipertandingan ini terdapat 4 Ronde, Juara akan diumumkan pada akhir pertandingan</p></Alert>
+      <Alert icon="info" header="Informasi"><p className="text-sm">Halo, <span className="poppins-semibold">{user.username}</span> Selamat datang di Bracket Competition, Anda sudah terdaftar sebagai peserta, Peserta akan diacak secara random, dan peserta akan diacak berdasarkan tim dan alamat peserta. Juara akan diumumkan pada akhir pertandingan</p></Alert>
     </section>
   )
 }

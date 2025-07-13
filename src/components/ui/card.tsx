@@ -20,6 +20,10 @@ const Card = ({ peserta, user }: { peserta: User; user: User }) => {
       });
       if (responseMessage.status === 200) {
         BoxAlert("Berhasil menghapus peserta", "success", "success");
+        const timeout = setTimeout(() => {
+          clearTimeout(timeout);
+          window.location.reload();
+        }, 1500)
       }
     }
   };
@@ -52,9 +56,12 @@ const Card = ({ peserta, user }: { peserta: User; user: User }) => {
       </section>
       <section className="flex flex-col justify-between">
         <section>
-          <h1 className="poppins-semibold">{peserta.username}</h1>
+          <h1 className="poppins-semibold mb-1">{peserta.username}</h1>
           <h2 className="text-xs text-slate-800">
-            Tim <span className="poppins-semibold">{peserta.namaTim}</span>
+            Tim: <span className="poppins-semibold">{peserta.namaTim}</span>
+          </h2>
+          <h2 className="text-xs text-slate-800">
+            Alamat: <span className="poppins-semibold">{peserta.alamat}</span>
           </h2>
         </section>
         <section>

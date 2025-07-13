@@ -150,13 +150,13 @@ const CardBracket = memo(
                       className="rounded-full shadow w-24 h-24"
                     />
                     <section className="w-full">
-                      <h1 className="poppins-semibold relative">
+                      <h1 className="poppins-semibold mb-1 relative">
                         {item.teams[0].name}
                         { copy != item.teams[0].id ? <Copy size={12} className="absolute top-0 right-0 cursor-pointer" onClick={() => handleCopy(item.teams[0].name, item.teams[0].id)}/> : <CheckCheck size={12} className="absolute text-green-600 top-0 right-0 cursor-pointer" />}
                       </h1>
-                      <h2 className="text-sm flex">Tim {item.teams[0].tim}</h2>
-                      <p className="text-xs text-slate-700 font-semibold">
-                        {item.teams[0].alamat}
+                      <h2 className="text-xs flex items-center gap-1">Tim:<span className="font-semibold">{item.teams[0].tim}</span></h2>
+                      <p className="text-xs items-center flex gap-1">
+                        Alamat: <span className="font-semibold">{item.teams[0].alamat}</span>
                       </p>
                       <section className="flex justify-around items-center my-5">
                         <ButtonMain onClick={() => handlePlus(index, 0)}>
@@ -186,16 +186,16 @@ const CardBracket = memo(
                       className="rounded-full shadow w-24 h-24"
                     />
                     <section className="w-full">
-                      <h1 className="poppins-semibold relative">
+                      <h1 className="poppins-semibold mb-1 relative">
                         {item.teams[1].name}
                         { copy != item.teams[1].id ? <Copy size={12} className="absolute top-0 right-0 cursor-pointer" onClick={() => handleCopy(item.teams[1].name, item.teams[1].id)}/> : <CheckCheck size={12} className="absolute text-green-600 top-0 right-0 cursor-pointer" />}
                         
                       </h1>
-                      <h2 className="text-sm flex items-center gap-2">
-                        Tim {item.teams[1].tim}
+                      <h2 className="text-sm flex items-center gap-1">
+                        Tim: <span className="font-semibold">{item.teams[1].tim}</span>
                       </h2>
-                      <p className="text-xs font-semibold text-slate-700">
-                        {item.teams[1].alamat}
+                      <p className="text-xs items-center flex gap-1">
+                        Alamat: <span className="font-semibold">{item.teams[1].alamat}</span>
                       </p>
                       <section className="flex justify-around items-center my-5">
                         <ButtonMain onClick={() => handlePlus(index, 1)}>
