@@ -28,6 +28,7 @@ const ButtonReset = ({
       await resetDatas([...folder]);
       setLoading(false);
       MixinAlert("success", "Data berhasil direset");
+      if(window != undefined) window.location.reload();
     }
   };
 

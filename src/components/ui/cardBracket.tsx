@@ -41,7 +41,7 @@ const CardBracket = memo(
           .filter(Boolean);
         setCekPeserta(pemain.length > 0 ? (pemain as Team[]) : []);
 
-        if (pemain.length <= 1 && ronde !== "winner") {
+        if (pemain.length <= 1 && ronde.toLowerCase() !== "winner") {
           router.push(`/antrian/${ronde}`);
         }
 
@@ -54,6 +54,8 @@ const CardBracket = memo(
         };
       }
     }, [peserta]);
+
+    
 
     const handleCopy = (text: string, id: string) => {
       navigator.clipboard

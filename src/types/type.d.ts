@@ -7,6 +7,7 @@ export interface User {
     alamat: string;
     gambar: string;
     ronde?: string; 
+    bracket?: string;
     score?: {
         ronde1?: {
             score1?: number;

@@ -29,7 +29,7 @@ const formValidationLogin = async (prev: unknown, formData: FormData) => {
         httpOnly: true,
         secure: true,
         path: "/",
-        maxAge: 3600
+        maxAge: 3600 * 24 * 30
       });
 
       return {

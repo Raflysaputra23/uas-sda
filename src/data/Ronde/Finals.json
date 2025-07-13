@@ -7,20 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "im23z74",
-          "name": "sari_694",
-          "score": 0,
+          "id": "qvaqrxf",
+          "name": "agus_184",
+          "score": 2,
           "gambar": "/person.png",
-          "alamat": "kota_11",
-          "tim": "tim_6"
+          "alamat": "kota_3",
+          "tim": "tim_13"
         },
         {
-          "id": "jo7dzfe",
-          "name": "budi_444",
-          "score": 0,
+          "id": "m4vup59",
+          "name": "fajar_959",
+          "score": 1,
           "gambar": "/person.png",
-          "alamat": "kota_7",
-          "tim": "tim_1"
+          "alamat": "kota_8",
+          "tim": "tim_10"
         }
       ]
     }

@@ -4,7 +4,7 @@
     {
       "id": 1,
       "date": "",
-      "roundTitle": "RepechangeAtas",
+      "roundTitle": "Repechange",
       "teams": [
         {
           "id": "",
@@ -15,12 +15,12 @@
           "tim": ""
         },
         {
-          "id": "87ph5po",
-          "name": "fajar_959",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "kota_8",
-          "tim": "tim_10"
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
         }
       ]
     }

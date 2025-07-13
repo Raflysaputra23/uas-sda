@@ -14,6 +14,29 @@ import { cookies } from "next/headers";
 // ALGORITMA ROUND ROBIN
 const RoundRobbin = (n: number) => Math.pow(2, Math.ceil(Math.log2(n)));
 
+function generateSeedOrder(totalPeserta: number): number[] {
+  const slot = RoundRobbin(totalPeserta); 
+
+  const predefinedOrder: Record<number, number[]> = {
+    2: [0],
+    4: [0, 1],
+    8: [1, 3, 0, 2],
+    16: [1, 5, 3, 7, 0, 4, 2, 6],
+    32: [
+      1, 9, 3, 11, 5, 13, 7, 15, 0, 8, 2, 10, 4, 12, 6, 14
+    ]
+  };
+
+  const rawOrder = predefinedOrder[slot];
+
+  if (!rawOrder) {
+    throw new Error(`Belum ada urutan manual untuk seed ${slot}`);
+  }
+
+  return rawOrder;
+}
+
+
 const getGenerateBracket = (roundTitle: string) => {
   const totalRonde = 5; // Termasuk Winner
   const jumlahMatchPerRonde = [4, 2, 1, 1, 1]; // Jumlah match per ronde
@@ -217,17 +240,12 @@ const createBracket = async (peserta: User[]) => {
     };
   }
 
-  // ISI ROUND 1 (dari pesertaMain)
-  const round1 = bracket[0];
-  const jumlahSeedRound1 = round1.seeds.length;
-  const mid = Math.floor(jumlahSeedRound1 / 2);
-  const seedOrder: number[] = [];
+  console.log("Peserta Main: ", pesertaMain);
+  console.log("Peserta Bay: ", pesertaBay);
 
-  for (let offset = 0; seedOrder.length < pesertaMain.length / 2; offset++) {
-    if (mid - offset >= 0) seedOrder.push(mid - offset);
-    if (offset !== 0 && mid + offset < jumlahSeedRound1)
-      seedOrder.push(mid + offset);
-  }
+  const round1 = bracket[0];
+  const seedOrder: number[] = generateSeedOrder(totalPeserta);
+  const seedOrderBay = seedOrder.splice(0, pesertaBay.length);
 
   for (let i = 0; i < pesertaMain.length; i += 2) {
     const team1 = pesertaMain[i];
@@ -255,38 +273,57 @@ const createBracket = async (peserta: User[]) => {
 
   // ISI BAY kE ROUND 2
   const round2 = bracket[1];
-  const jumlahSeedRound2 = round2.seeds.length;
-  const jumlahPesertaBay = Math.ceil(pesertaBay.length / 2);
+  for (let i = 0; i < pesertaBay.length; i++) {
+    const index = seedOrderBay[i];
+    const seedIndex = Math.floor(index / 2);
+    const timIndex = index % 2 === 0 ? 0 : 1;
 
-  const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
-  const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
-  for (let i = 0; i < pesertaBayAtas.length; i++) {
-    const seed = round2.seeds[Math.floor(i / 2)];
-    const timIndex = i % 2;
-    seed.teams[timIndex] = {
-      id: pesertaBayAtas[i].id,
-      name: pesertaBayAtas[i].username,
+    round2.seeds[seedIndex].teams[timIndex] = {
+      id: pesertaBay[i].id,
+      name: pesertaBay[i].username,
       score: 0,
-      gambar: pesertaBayAtas[i].gambar,
-      alamat: pesertaBayAtas[i].alamat,
-      tim: pesertaBayAtas[i].namaTim,
+      gambar: pesertaBay[i].gambar,
+      alamat: pesertaBay[i].alamat,
+      tim: pesertaBay[i].namaTim,
     };
   }
 
-  // 💠 ISI BAGIAN BAWAH
-  for (let i = 0; i < pesertaBayBawah.length; i++) {
-    const seed = round2.seeds[jumlahSeedRound2 - 1 - Math.floor(i / 2)];
-    const timIndex = i % 2 == 0 ? 1 : 0;
+  console.log("Seed Order Bay: ", seedOrderBay);
+  console.log('Seed Order Main: ', seedOrder);
+  // const jumlahSeedRound2 = round2.seeds.length;
+  // const jumlahPesertaBay = Math.ceil(pesertaBay.length / 2);
 
-    seed.teams[timIndex] = {
-      id: pesertaBayBawah[i].id,
-      name: pesertaBayBawah[i].username,
-      score: 0,
-      gambar: pesertaBayBawah[i].gambar,
-      alamat: pesertaBayBawah[i].alamat,
-      tim: pesertaBayBawah[i].namaTim,
-    };
-  }
+  // const half = Math.ceil(seedOrder.length / 2);
+
+  // const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
+  // const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
+  // for (let i = 0; i < pesertaBayAtas.length; i++) {
+  //   const seed = round2.seeds[Math.floor(i / 2)];
+  //   const timIndex = i % 2;
+  //   seed.teams[timIndex] = {
+  //     id: pesertaBayAtas[i].id,
+  //     name: pesertaBayAtas[i].username,
+  //     score: 0,
+  //     gambar: pesertaBayAtas[i].gambar,
+  //     alamat: pesertaBayAtas[i].alamat,
+  //     tim: pesertaBayAtas[i].namaTim,
+  //   };
+  // }
+
+  // // 💠 ISI BAGIAN BAWAH
+  // for (let i = 0; i < pesertaBayBawah.length; i++) {
+  //   const seed = round2.seeds[jumlahSeedRound2 - 1 - Math.floor(i / 2)];
+  //   const timIndex = i % 2 == 0 ? 1 : 0;
+
+  //   seed.teams[timIndex] = {
+  //     id: pesertaBayBawah[i].id,
+  //     name: pesertaBayBawah[i].username,
+  //     score: 0,
+  //     gambar: pesertaBayBawah[i].gambar,
+  //     alamat: pesertaBayBawah[i].alamat,
+  //     tim: pesertaBayBawah[i].namaTim,
+  //   };
+  // }
 
   try {
     for (const round of bracket) {
@@ -648,8 +685,8 @@ const getRepechangeParticipants = () => {
     return team.id
   });
 
-  const defeatedPlayersAtas: Map<string, { id: string; ronde: string }> = new Map();
-  const defeatedPlayersBawah: Map<string, { id: string; ronde: string }> = new Map();
+  const defeatedPlayersAtas: Map<string, { id: string; ronde: string,  bracket: string }> = new Map();
+  const defeatedPlayersBawah: Map<string, { id: string; ronde: string, bracket: string }> = new Map();
 
   // Cek semua ronde sebelumnya (kecuali Winner dan Finals)
   const kecuali = ["Winner", "Finals"];
@@ -675,7 +712,7 @@ const getRepechangeParticipants = () => {
       const kalah = team1.score > team2.score ? team2 : team1;
 
       if (finalisAtas.includes(pemenang.id)) {
-        defeatedPlayersAtas.set(kalah.id, { id: kalah.id, ronde: ronde });
+        defeatedPlayersAtas.set(kalah.id, { id: kalah.id, ronde: ronde, bracket: "atas" });
       }
     }
 
@@ -690,7 +727,7 @@ const getRepechangeParticipants = () => {
       const kalah = team1.score > team2.score ? team2 : team1;
 
       if (finalisBawah.includes(pemenang.id)) {
-        defeatedPlayersBawah.set(kalah.id, { id: kalah.id, ronde: ronde });
+        defeatedPlayersBawah.set(kalah.id, { id: kalah.id, ronde: ronde, bracket: "bawah" });
       }
     }
   }
@@ -702,6 +739,7 @@ const getRepechangeParticipants = () => {
     const data = defeatedPlayersAtas.get(user.id);
     if (data?.ronde && data?.id === user.id) {
       user.ronde = data?.ronde;
+      user.bracket = "atas";
       return true;
     }
     return false;
@@ -711,6 +749,7 @@ const getRepechangeParticipants = () => {
     const data = defeatedPlayersBawah.get(user.id);
     if (data?.ronde && data?.id === user.id) {
       user.ronde = data?.ronde;
+      user.bracket = "bawah";
       return true;
     }
     return false;
@@ -922,7 +961,7 @@ const getRepechangeParticipantsDouble = () => {
 const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
   const peserta = pesertaRepechange;
   const totalPeserta = peserta.length;
-  const totalSlot = RoundRobbin(totalPeserta); // ex: 5 → 8
+  const totalSlot = RoundRobbin(totalPeserta); 
   const totalBay = totalSlot - totalPeserta;
   const totalRonde = Math.log2(totalSlot) + 1; // 3 + 1 = 4 ronde
 
@@ -932,11 +971,14 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
     const jumlahAtas = Math.ceil(totalBay / 2);
     const jumlahBawah = totalBay - jumlahAtas;
 
+
     const pesertaBayAtas: User[] = pesertaMain.splice(0, jumlahAtas);
     const pesertaBayBawah: User[] = jumlahBawah > 0 ? pesertaMain.splice(-jumlahBawah) : []
 
     pesertaBay = [...pesertaBayAtas, ...pesertaBayBawah];
   };
+
+  console.log("Peserta Bay:", pesertaBay);
 
   // Buat semua bracket ronde
   const bracket: any[] = [];
@@ -950,7 +992,7 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
           : i === totalRonde - 2
           ? "Finals"
           : `${i + 1}`;
-      const jumlahSeed = Math.pow(2, totalRonde - i - 2); // 8 → Round 1 = 4 match, Round 2 = 2 match, ...
+      const jumlahSeed = Math.pow(2, totalRonde - i - 2); // 8 → Round 1 = 4 match, Round 2 = 2 match
       const seeds = Array.from({ length: jumlahSeed }, (_, j) => ({
         id: j + 1,
         date: "",
@@ -1072,6 +1114,7 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
 
     const pesertaBayAtas = pesertaBay.slice(0, jumlahPesertaBay);
     const pesertaBayBawah = pesertaBay.slice(jumlahPesertaBay);
+
     for (let i = 0; i < pesertaBayAtas.length; i++) {
       const seed = round2.seeds[Math.floor(i / 2)];
       const timIndex = i % 2;

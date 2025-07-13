@@ -4,30 +4,30 @@
     {
       "id": 1,
       "date": "",
-      "roundTitle": "RepechangeAtas",
+      "roundTitle": "Repechange",
       "teams": [
         {
-          "id": "",
-          "name": "",
-          "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": ""
-        },
-        {
-          "id": "bhvxkcc",
-          "name": "sinta_517",
+          "id": "n3datxd",
+          "name": "fitri_959",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "kota_9",
-          "tim": "tim_14"
+          "alamat": "kota_2",
+          "tim": "tim_16"
+        },
+        {
+          "id": "mzbimr2",
+          "name": "mega_985",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "kota_2",
+          "tim": "tim_3"
         }
       ]
     },
     {
       "id": 2,
       "date": "",
-      "roundTitle": "RepechangeAtas",
+      "roundTitle": "Repechange",
       "teams": [
         {
           "id": "",
@@ -38,12 +38,12 @@
           "tim": ""
         },
         {
-          "id": "p8pdcfi",
-          "name": "ilham_830",
+          "id": "1w3a9by",
+          "name": "luthfi_661",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "kota_14",
-          "tim": "tim_2"
+          "alamat": "kota_4",
+          "tim": "tim_8"
         }
       ]
     }
