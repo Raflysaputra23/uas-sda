@@ -92,6 +92,9 @@ const CustomSeed = ({
                   <p className="text-xs font-semibold">
                     {seed.teams[0].alamat}
                   </p>
+                  <p className="text-xs">
+                    {seed.teams[0].tim}
+                  </p>
                 </section>
               </section>
               <p
@@ -138,6 +141,9 @@ const CustomSeed = ({
                   <h1 className="">{seed.teams[1].name}</h1>
                   <p className="text-xs font-semibold">
                     {seed.teams[1].alamat}
+                  </p>
+                  <p className="text-xs">
+                    {seed.teams[1].tim}
                   </p>
                 </section>
               </section>
