@@ -10,8 +10,6 @@ import {
 import { redirect } from "next/navigation";
 import { MixinAlert } from "./alert";
 import { cookies } from "next/headers";
-import dbmysql from "./dbmysql";
-import { RowDataPacket } from "mysql2";
 
 // ALGORITMA ROUND ROBIN
 const RoundRobbin = (n: number) => Math.pow(2, Math.ceil(Math.log2(n)));
@@ -433,22 +431,13 @@ const createBracket = async (peserta: User[]) => {
     };
   }
 
-  const values = peserta.map(() => "(?, ?, ?, ?, ?, ?, ?)").join(", ");
-  const flatValues = peserta.flatMap((user) => [
-    user.id,
-    user.username,
-    user.password,
-    user.role,
-    user.namaTim,
-    user.email,
-    user.gambar,
-  ]);
-
-  const [rows] = await dbmysql.execute(
-    `INSERT INTO peserta (id, username, password, role, namaTim, email, gambar) VALUES ${values}`,
-    flatValues
-  );
-  console.log(rows);
+  await fetch(`${process.env.NEXT_PUBLIC_URL_DOMAIN_HOSTING}/scorekata/tambah_peserta.php`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(peserta),
+  });
 
   try {
     for (const round of bracket) {
@@ -1315,14 +1304,14 @@ const resetDatas = async (folder: string[]) => {
 
 const pesertaMain = async (peserta: Seed, folder: string, currentRonde: string) => {
   // UPDATE PESERTA KE DB MYSQL
-  for (const team of peserta.teams) {
-    const query = `UPDATE peserta SET main = ? WHERE id = ?`;
-    const value = ["true", team.id];
-    const [rows] = await dbmysql.execute(query, value) as RowDataPacket[];
-    if(rows.affectedRows < 1) {
-      return false;
-    }
-  }
+  const [team1, team2] = peserta.teams;
+  await fetch(`${process.env.NEXT_PUBLIC_URL_DOMAIN_HOSTING}/scorekata/update_peserta.php`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify([{id: team1.id, tipe: "aka"}, {id: team2.id, tipe: "ao"}]),
+  })
 
   // UPDATE PESERTA KE SEED
   const { message: msg, data: pesertaSekarang } = getData(
@@ -1333,7 +1322,6 @@ const pesertaMain = async (peserta: Seed, folder: string, currentRonde: string) 
     const find = pesertaSekarang.seeds.find((seed: Seed) => seed.id == peserta.id);
     find.teams[0].main = "true";
     find.teams[1].main = "true";
-    console.log(JSON.stringify(pesertaSekarang, null, 2));
     writeData(`${folder}:${currentRonde}`, pesertaSekarang);
   }
   

@@ -2,7 +2,6 @@
 
 import {
   Bracket as Brackets,
-  // IRoundProps,
   Seed,
   SingleLineSeed,
   SeedItem,
@@ -14,16 +13,14 @@ import useSWR from "swr";
 import Loading from "@/app/loading";
 import Image from "next/image";
 import Link from "next/link";
-import { CirclePower, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import ButtonMain from "@/components/ui/buttonMain";
-import { Button } from "@/components/ui/button";
 
 const CustomSeed = ({
   seed,
   breakpoint,
   rounds,
   roundIndex,
-  seedIndex,
 }: IRenderSeedProps) => {
   const Wrapper = false ? SingleLineSeed : Seed;
 
