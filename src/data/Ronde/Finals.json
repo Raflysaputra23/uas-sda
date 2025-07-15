@@ -1,0 +1,31 @@
+{
+  "title": "Finals",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        }
+      ]
+    }
+  ],
+  "id": "Finals"
+}

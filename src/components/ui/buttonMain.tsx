@@ -39,16 +39,16 @@ const ButtonMain = ({
   active = false,
   ...props
 }: ButtonMainProps) => {
-  const colorMain = bgColor === "blue" ? `bg-blue-500 hover:bg-blue-700 ${active && "bg-blue-700 !text-slate-100"} hover:text-slate-100 disabled:bg-blue-500/60 ${className} ${outline ? `border-blue-500 ${active || "bg-transparent"} text-blue-500` : "border-transparent text-slate-100"}` :
-                    bgColor === "black" ? `bg-slate-800 hover:bg-slate-950 ${active && "bg-slate-950 !text-slate-100"} hover:text-slate-100 disabled:bg-slate-800/60 ${className} ${outline ? `border-slate-800 ${active || "bg-transparent"} text-slate-800` : "border-transparent text-slate-100"}` : 
-                    bgColor === "red" ? `bg-red-500 hover:bg-red-700 ${active && "bg-red-700 !text-slate-100"} hover:text-slate-100 disabled:bg-red-500/60 ${className} ${outline ? `border-redd-500 ${active || "bg-transparent"} text-red-500` : "border-transparent text-slate-100"}` : ""; 
+  const colorMain = bgColor === "blue" ? `bg-blue-500 hover:bg-blue-700 ${active && "bg-blue-700 !text-slate-100"} hover:text-slate-100 disabled:bg-blue-500/60 ${outline ? `border-blue-500 ${active || "bg-transparent"} text-blue-500` : "border-transparent text-slate-100"}` :
+                    bgColor === "black" ? `bg-slate-800 hover:bg-slate-950 ${active && "bg-slate-950 !text-slate-100"} hover:text-slate-100 disabled:bg-slate-800/60 ${outline ? `border-slate-800 ${active || "bg-transparent"} text-slate-800` : "border-transparent text-slate-100"}` : 
+                    bgColor === "red" ? `bg-red-500 hover:bg-red-700 ${active && "bg-red-700 !text-slate-100"} hover:text-slate-100 disabled:bg-red-500/60 ${outline ? `border-redd-500 ${active || "bg-transparent"} text-red-500` : "border-transparent text-slate-100"}` : ""; 
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
           {...props}
-          className={`${colorMain} border transition-all rounded-md shadow cursor-pointer p-1 px-2 inline-flex items-center gap-2`}
+          className={`${colorMain} ${className} border transition-all rounded-md shadow cursor-pointer p-1 px-2 inline-flex items-center gap-2`}
         >
           {children}
         </Button>

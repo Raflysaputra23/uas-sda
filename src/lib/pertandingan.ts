@@ -10,6 +10,8 @@ import {
 import { redirect } from "next/navigation";
 import { MixinAlert } from "./alert";
 import { cookies } from "next/headers";
+import dbmysql from "./dbmysql";
+import { RowDataPacket } from "mysql2";
 
 // ALGORITMA ROUND ROBIN
 const RoundRobbin = (n: number) => Math.pow(2, Math.ceil(Math.log2(n)));
@@ -160,7 +162,7 @@ function urutkanDenganAlamatDanTim(peserta: User[]) {
       }
 
       // Cek pasangan sebelumnya juga (i-1 ke i), jika i > 0 dan i-1 genap
-      if ((i - 1) >= 0 && (i - 1) % 2 === 0) {
+      if (i - 1 >= 0 && (i - 1) % 2 === 0) {
         const kiri = result[i - 1];
         if (
           kiri &&
@@ -341,7 +343,10 @@ const createBracket = async (peserta: User[]) => {
   let pesertaMain = [...users];
   let pesertaBay: User[] = [];
   if (totalBay > 0) {
-    pesertaBay = urutkanDenganPrioritasAlamatDanTim(pesertaMain.splice(-totalBay), false);
+    pesertaBay = urutkanDenganPrioritasAlamatDanTim(
+      pesertaMain.splice(-totalBay),
+      false
+    );
   }
 
   pesertaMain = urutkanDenganPrioritasAlamatDanTim(pesertaMain, true);
@@ -362,8 +367,8 @@ const createBracket = async (peserta: User[]) => {
       date: "",
       roundTitle: "Utama",
       teams: [
-        { id: "", name: "", score: 0, gambar: "", alamat: "", tim: "" },
-        { id: "", name: "", score: 0, gambar: "", alamat: "", tim: "" },
+        { id: "", name: "", score: 0, gambar: "", alamat: "", tim: "", main: "false" },
+        { id: "", name: "", score: 0, gambar: "", alamat: "", tim: "", main: "false" },
       ],
     }));
     bracket.push({ title, seeds });
@@ -376,7 +381,7 @@ const createBracket = async (peserta: User[]) => {
       id: 1,
       date: "",
       roundTitle: "Utama",
-      teams: [{ id: "", name: "", score: 0, gambar: "", alamat: "", tim: "" }],
+      teams: [{ id: "", name: "", score: 0, gambar: "", alamat: "", tim: "", main: "false" }],
     };
   }
 
@@ -396,6 +401,7 @@ const createBracket = async (peserta: User[]) => {
         gambar: team1?.gambar || "",
         alamat: team1?.alamat || "",
         tim: team1?.namaTim || "",
+        main: "false"
       },
       {
         id: team2?.id,
@@ -404,6 +410,7 @@ const createBracket = async (peserta: User[]) => {
         gambar: team2?.gambar || "",
         alamat: team2?.alamat || "",
         tim: team2?.namaTim || "",
+        main: "false"
       },
     ];
   }
@@ -422,9 +429,26 @@ const createBracket = async (peserta: User[]) => {
       gambar: pesertaBay[i].gambar,
       alamat: pesertaBay[i].alamat,
       tim: pesertaBay[i].namaTim,
+      main: "false"
     };
   }
 
+  const values = peserta.map(() => "(?, ?, ?, ?, ?, ?, ?)").join(", ");
+  const flatValues = peserta.flatMap((user) => [
+    user.id,
+    user.username,
+    user.password,
+    user.role,
+    user.namaTim,
+    user.email,
+    user.gambar,
+  ]);
+
+  const [rows] = await dbmysql.execute(
+    `INSERT INTO peserta (id, username, password, role, namaTim, email, gambar) VALUES ${values}`,
+    flatValues
+  );
+  console.log(rows);
 
   try {
     for (const round of bracket) {
@@ -1289,4 +1313,31 @@ const resetDatas = async (folder: string[]) => {
   }
 };
 
-export { createBracket, updateBracket, resetDatas };
+const pesertaMain = async (peserta: Seed, folder: string, currentRonde: string) => {
+  // UPDATE PESERTA KE DB MYSQL
+  for (const team of peserta.teams) {
+    const query = `UPDATE peserta SET main = ? WHERE id = ?`;
+    const value = ["true", team.id];
+    const [rows] = await dbmysql.execute(query, value) as RowDataPacket[];
+    if(rows.affectedRows < 1) {
+      return false;
+    }
+  }
+
+  // UPDATE PESERTA KE SEED
+  const { message: msg, data: pesertaSekarang } = getData(
+    `${folder}:${currentRonde}`
+  );
+
+  if(msg == "success") {
+    const find = pesertaSekarang.seeds.find((seed: Seed) => seed.id == peserta.id);
+    find.teams[0].main = "true";
+    find.teams[1].main = "true";
+    console.log(JSON.stringify(pesertaSekarang, null, 2));
+    writeData(`${folder}:${currentRonde}`, pesertaSekarang);
+  }
+  
+  return true;
+}
+
+export { createBracket, updateBracket, resetDatas, pesertaMain };

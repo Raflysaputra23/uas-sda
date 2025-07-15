@@ -48,6 +48,7 @@ interface Team {
   gambar?: string;
   kalahDari?: string;
   ronde?: string;
+  main?: string;
 }
 
 export interface Seed {

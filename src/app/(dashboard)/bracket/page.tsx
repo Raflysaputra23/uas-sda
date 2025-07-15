@@ -14,16 +14,19 @@ import useSWR from "swr";
 import Loading from "@/app/loading";
 import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { CirclePower, Search } from "lucide-react";
 import ButtonMain from "@/components/ui/buttonMain";
+import { Button } from "@/components/ui/button";
 
 const CustomSeed = ({
   seed,
   breakpoint,
   rounds,
   roundIndex,
+  seedIndex,
 }: IRenderSeedProps) => {
   const Wrapper = false ? SingleLineSeed : Seed;
+
 
   return (
     <>
@@ -42,8 +45,10 @@ const CustomSeed = ({
             (seed.roundTitle == "RepechangeAtas" ||
               seed.roundTitle == "RepechangeBawah") &&
             "mt-67"
-          }`}
+          } relative`}
         >
+         
+           
           <SeedItem
             className={`${
               rounds &&
@@ -92,9 +97,7 @@ const CustomSeed = ({
                   <p className="text-xs font-semibold">
                     {seed.teams[0].alamat}
                   </p>
-                  <p className="text-xs">
-                    {seed.teams[0].tim}
-                  </p>
+                  <p className="text-xs">{seed.teams[0].tim}</p>
                 </section>
               </section>
               <p
@@ -114,8 +117,25 @@ const CustomSeed = ({
             rounds &&
             rounds[roundIndex]?.title == "1" &&
             "bracket"
-          }`}
+          } relative`}
         >
+          {/* <Button
+            className={`absolute bg-red-500 rounded text-slate-100 shadow cursor-pointer ${
+              (rounds && rounds[roundIndex]?.title == "Winner") ||
+              roundIndex == 0
+                ? "hidden"
+                : ""
+            } ${team1 == "" && team2 == "" ? "hidden" : ""}`}
+            style={{
+              left: "-20px",
+              borderRadius: "50%",
+              width: "35px",
+              height: "35px",
+            }}
+          >
+            <CirclePower />
+          </Button> */}
+
           <SeedItem
             className={`!bg-blue-500 border !rounded-xl shadow ${
               seed.teams[1].name == "" &&
@@ -142,9 +162,7 @@ const CustomSeed = ({
                   <p className="text-xs font-semibold">
                     {seed.teams[1].alamat}
                   </p>
-                  <p className="text-xs">
-                    {seed.teams[1].tim}
-                  </p>
+                  <p className="text-xs">{seed.teams[1].tim}</p>
                 </section>
               </section>
               <p
@@ -443,7 +461,9 @@ const Bracket = () => {
               if (item.bracket == "RepechangeBawah") {
                 return (
                   <Link key={item.id} href={`/antrian/${item.title}`}>
-                    <ButtonMain outline>Antrian Repechange {item.title}</ButtonMain>
+                    <ButtonMain outline>
+                      Antrian Repechange {item.title}
+                    </ButtonMain>
                   </Link>
                 );
               }
