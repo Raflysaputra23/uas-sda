@@ -13,16 +13,16 @@
           "gambar": "/person.png",
           "alamat": "tanggamus",
           "tim": "kki",
-          "main": "false"
+          "main": "true"
         },
         {
-          "id": "0pzh3bd",
-          "name": "sinta",
+          "id": "76i3zj3",
+          "name": "allwine",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "pringsewu",
+          "alamat": "bandar lampung",
           "tim": "inkai",
-          "main": "false"
+          "main": "true"
         }
       ]
     },
@@ -57,21 +57,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "xwlkg7q",
-          "name": "yuni",
+          "id": "rsnztbc",
+          "name": "rafly",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "mesuji",
-          "tim": "lemkari",
+          "alamat": "bandar lampung",
+          "tim": "inkai",
           "main": "false"
         },
         {
-          "id": "kh7nhqa",
-          "name": "agus",
+          "id": "k2u1x7f",
+          "name": "budi",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "tulang bawang",
-          "tim": "inkado",
+          "alamat": "lampung selatan",
+          "tim": "kki",
           "main": "false"
         }
       ]
@@ -82,12 +82,37 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "anr763y",
-          "name": "dedi",
+          "id": "xwlkg7q",
+          "name": "yuni",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "mesuji",
+          "tim": "lemkari",
+          "main": "false"
+        },
+        {
+          "id": "knwbctn",
+          "name": "lina",
           "score": 0,
           "gambar": "/person.png",
           "alamat": "pringsewu",
-          "tim": "inkanas",
+          "tim": "kki",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "vlek6yx",
+          "name": "surya",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "lampung selatan",
+          "tim": "inkai",
           "main": "false"
         },
         {
@@ -102,7 +127,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "date": "",
       "roundTitle": "Utama",
       "teams": [
@@ -116,28 +141,28 @@
           "main": "false"
         },
         {
-          "id": "rsnztbc",
-          "name": "rafly",
+          "id": "anr763y",
+          "name": "dedi",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "bandar lampung",
-          "tim": "inkai",
+          "alamat": "pringsewu",
+          "tim": "inkanas",
           "main": "false"
         }
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "date": "",
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "36ct3ro",
-          "name": "hermawan",
+          "id": "6b6diu9",
+          "name": "fitri",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "Pesibar",
-          "tim": "lemkari",
+          "alamat": "lampung timur",
+          "tim": "kki",
           "main": "false"
         },
         {
@@ -152,50 +177,25 @@
       ]
     },
     {
-      "id": 7,
-      "date": "",
-      "roundTitle": "Utama",
-      "teams": [
-        {
-          "id": "k2u1x7f",
-          "name": "budi",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "lampung selatan",
-          "tim": "kki",
-          "main": "false"
-        },
-        {
-          "id": "6b6diu9",
-          "name": "fitri",
-          "score": 0,
-          "gambar": "/person.png",
-          "alamat": "lampung timur",
-          "tim": "kki",
-          "main": "false"
-        }
-      ]
-    },
-    {
       "id": 8,
       "date": "",
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "knwbctn",
-          "name": "lina",
+          "id": "kh7nhqa",
+          "name": "agus",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "pringsewu",
-          "tim": "kki",
+          "alamat": "tulang bawang",
+          "tim": "inkado",
           "main": "false"
         },
         {
-          "id": "76i3zj3",
-          "name": "allwine",
+          "id": "0pzh3bd",
+          "name": "sinta",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "bandar lampung",
+          "alamat": "pringsewu",
           "tim": "inkai",
           "main": "false"
         }
