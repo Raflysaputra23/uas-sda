@@ -7,22 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
-          "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "id": "dd4srzd",
+          "name": "RAHMAN SODIQIN",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "TULANG BAWANG BARAT",
+          "tim": "SHINDOKA"
         },
         {
-          "id": "",
-          "name": "",
+          "id": "a0v1qz7",
+          "name": "MUHAMMAD SADIQ AL FAJRI",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG TENGAH",
+          "tim": "BKC"
         }
       ]
     }

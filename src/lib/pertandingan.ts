@@ -430,14 +430,14 @@ const createBracket = async (peserta: User[]) => {
       main: "false"
     };
   }
-
+  
   await fetch(`${process.env.NEXT_PUBLIC_URL_DOMAIN_HOSTING}/scorekata/tambah_peserta.php`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(peserta),
-  });
+  });   
 
   try {
     for (const round of bracket) {
@@ -1115,7 +1115,6 @@ const createRepechange = (pesertaRepechange: any, roundTitle: string) => {
     pesertaBay = [...pesertaBayAtas, ...pesertaBayBawah];
   }
 
-  console.log("Peserta Bay:", pesertaBay);
 
   // Buat semua bracket ronde
   const bracket: any[] = [];

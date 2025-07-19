@@ -8,13 +8,14 @@ import {
   SeedTeam,
   IRenderSeedProps,
 } from "react-brackets";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import Loading from "@/app/loading";
 import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Printer, Search } from "lucide-react";
 import ButtonMain from "@/components/ui/buttonMain";
+import { useReactToPrint } from "react-to-print";
 
 const CustomSeed = ({
   seed,
@@ -30,41 +31,35 @@ const CustomSeed = ({
       {seed.teams[0] && (
         <Wrapper
           mobileBreakpoint={breakpoint}
-          className={`text-xs line ${
-            seed.teams[0].name == "" &&
+          className={`text-xs line ${seed.teams[0].name == "" &&
             rounds &&
             rounds[roundIndex]?.title == "1" &&
             "bracket"
-          } ${
-            rounds &&
+            } ${rounds &&
             (rounds[roundIndex]?.title == "Finals" ||
               rounds[roundIndex]?.title == "Winner") &&
             (seed.roundTitle == "RepechangeAtas" ||
               seed.roundTitle == "RepechangeBawah") &&
             "mt-67"
-          } relative`}
+            } relative`}
         >
-         
-           
+
+
           <SeedItem
-            className={`${
-              rounds &&
+            className={`${rounds &&
               rounds[roundIndex]?.title == "Winner" &&
               seed.roundTitle == "Utama" &&
               "!bg-yellow-600"
-            } ${
-              rounds &&
+              } ${rounds &&
               rounds[roundIndex]?.title == "Winner" &&
               seed.roundTitle == "Repechange" &&
               "!bg-amber-800"
-            } ${
-              rounds && rounds[roundIndex]?.title != "Winner" && "!bg-red-500"
-            } border !rounded-xl shadow relative ${
-              seed.teams[0].name == "" &&
+              } ${rounds && rounds[roundIndex]?.title != "Winner" && "!bg-red-500"
+              } border !rounded-xl shadow relative ${seed.teams[0].name == "" &&
               rounds &&
               rounds[roundIndex]?.title == "1" &&
               "invisible"
-            }`}
+              }`}
           >
             {rounds && rounds.length - 1 == roundIndex && (
               <Image
@@ -90,7 +85,7 @@ const CustomSeed = ({
                 />
 
                 <section className="text-start">
-                  <h1 className="">{seed.teams[0].name}</h1>
+                  <h1 className="text-xs">{seed.teams[0].name}</h1>
                   <p className="text-xs font-semibold">
                     {seed.teams[0].alamat}
                   </p>
@@ -109,12 +104,11 @@ const CustomSeed = ({
       {seed.teams[1] && (
         <Wrapper
           mobileBreakpoint={breakpoint}
-          className={`text-xs line ${
-            seed.teams[1].name == "" &&
+          className={`text-xs line ${seed.teams[1].name == "" &&
             rounds &&
             rounds[roundIndex]?.title == "1" &&
             "bracket"
-          } relative`}
+            } relative`}
         >
           {/* <Button
             className={`absolute bg-red-500 rounded text-slate-100 shadow cursor-pointer ${
@@ -134,12 +128,11 @@ const CustomSeed = ({
           </Button> */}
 
           <SeedItem
-            className={`!bg-blue-500 border !rounded-xl shadow ${
-              seed.teams[1].name == "" &&
+            className={`!bg-blue-500 border !rounded-xl shadow ${seed.teams[1].name == "" &&
               rounds &&
               rounds[roundIndex]?.title == "1" &&
               "invisible"
-            }`}
+              }`}
           >
             <SeedTeam
               className={`!py-3 h-18 flex items-center justify-between w-52`}
@@ -155,7 +148,7 @@ const CustomSeed = ({
                   className="rounded-md shadow aspect-square"
                 />
                 <section className="text-start">
-                  <h1 className="">{seed.teams[1].name}</h1>
+                  <h1 className="text-xs">{seed.teams[1].name}</h1>
                   <p className="text-xs font-semibold">
                     {seed.teams[1].alamat}
                   </p>
@@ -214,6 +207,27 @@ const Bracket = () => {
     "/api/dynamic/RepechangeBawah",
     fetcher
   );
+  const bracketUtamaRef = useRef(null);
+  const bracketRepechangeRef = useRef(null);
+  const bracketRepechangeAtasRef = useRef(null);
+  const bracketRepechangeBawahRef = useRef(null);
+
+  const handlePrintBracketUtama = useReactToPrint({
+    contentRef: bracketUtamaRef,
+  });
+
+  const handlePrintBracketRepechange = useReactToPrint({
+    contentRef: bracketRepechangeRef,
+  });
+
+  const handlePrintBracketRepechangeAtas = useReactToPrint({
+    contentRef: bracketRepechangeAtasRef,
+  });
+
+  const handlePrintBracketRepechangeBawah = useReactToPrint({
+    contentRef: bracketRepechangeBawahRef,
+  });
+
 
   useEffect(() => {
     if (repechange && utama) {
@@ -324,29 +338,35 @@ const Bracket = () => {
         <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block shadow rounded-md text-slate-200">
           Babak Utama
         </h1>
-        <section className="flex items-center gap-2 my-3">
-          {totalPesertaUtama &&
-            totalPesertaUtama.map((item: any) => {
-              return (
-                <Link key={item.id} href={`/ronde/${item.title}`}>
-                  <ButtonMain outline>Ronde {item.title}</ButtonMain>
-                </Link>
-              );
-            })}
-          {antrian &&
-            antrian.map((item: any) => {
-              if (item.bracket == "Ronde") {
+        <section className="flex items-center justify-between gap-2 my-3">
+          <section className="flex items-center gap-2">
+            {totalPesertaUtama &&
+              totalPesertaUtama.map((item: any) => {
                 return (
-                  <Link key={item.id} href={`/antrian/${item.title}`}>
-                    <ButtonMain>Antrian {item.title}</ButtonMain>
+                  <Link key={item.id} href={`/ronde/${item.title}`}>
+                    <ButtonMain outline>Ronde {item.title}</ButtonMain>
                   </Link>
                 );
-              }
-            })}
+              })}
+            {antrian &&
+              antrian.map((item: any) => {
+                if (item.bracket == "Ronde") {
+                  return (
+                    <Link key={item.id} href={`/antrian/${item.title}`}>
+                      <ButtonMain>Antrian {item.title}</ButtonMain>
+                    </Link>
+                  );
+                }
+              })}
+          </section>
+          <section className="flex items-center gap-2">
+            {pesertaUtama?.length > 1 && <ButtonMain bgColor="red" onClick={handlePrintBracketUtama}>Print <Printer /></ButtonMain>}
+          </section>
         </section>
-        <section className="overflow-auto mt-10">
+        <section ref={bracketUtamaRef} className="overflow-auto mt-10 print-container">   
+          <h1 className="text-2xl ml-10 hidden print:inline-block justify-center font-bold mx-auto bg-blue-500 px-2 p-1 rounded-md text-slate-200">Bracket Utama</h1>
           {pesertaUtama?.length > 1 ? (
-            <Brackets rounds={pesertaUtama} renderSeedComponent={CustomSeed} />
+            <Brackets rounds={pesertaUtama} renderSeedComponent={CustomSeed} bracketClassName="avoid-break" />
           ) : (
             <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
               Belum ada babak utama <Search size={35} />
@@ -361,28 +381,34 @@ const Bracket = () => {
         <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
           Repechange 1 & 2
         </h1>
-        <section className="flex items-center gap-2 my-3">
-          {rondeRepechange &&
-            totalPesertaRepechange > 1 &&
-            rondeRepechange.map((item: any) => {
-              return (
-                <Link key={item.id} href={`/repechange/${item.title}`}>
-                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
-                </Link>
-              );
-            })}
-          {antrian &&
-            antrian.map((item: any) => {
-              if (item.bracket == "Repechange") {
+        <section className="flex items-center justify-between gap-2 my-3">
+          <section className="flex items-center gap-2">
+            {rondeRepechange &&
+              totalPesertaRepechange > 1 &&
+              rondeRepechange.map((item: any) => {
                 return (
-                  <Link key={item.id} href={`/antrian/${item.title}`}>
-                    <ButtonMain outline>Antrian {item.title}</ButtonMain>
+                  <Link key={item.id} href={`/repechange/${item.title}`}>
+                    <ButtonMain outline>Repechange {item.title}</ButtonMain>
                   </Link>
                 );
-              }
-            })}
+              })}
+            {antrian &&
+              antrian.map((item: any) => {
+                if (item.bracket == "Repechange") {
+                  return (
+                    <Link key={item.id} href={`/antrian/${item.title}`}>
+                      <ButtonMain outline>Antrian {item.title}</ButtonMain>
+                    </Link>
+                  );
+                }
+              })}
+          </section>
+          <section className="flex items-center gap-2">
+            {totalPesertaRepechange > 1 && <ButtonMain bgColor="red" onClick={handlePrintBracketRepechange}>Print <Printer /></ButtonMain>}
+          </section>
         </section>
-        <section className="overflow-auto mt-10">
+        <section ref={bracketRepechangeRef} className="overflow-auto mt-10 print-container">
+          <h1 className="text-2xl ml-10 hidden print:inline-block justify-center font-bold mx-auto bg-blue-500 px-2 p-1 rounded-md text-slate-200">Bracket Repechange</h1>
           {totalPesertaRepechange > 1 ? (
             <Brackets
               rounds={pesertaRepechange}
@@ -402,29 +428,35 @@ const Bracket = () => {
         <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
           Repechange Atas
         </h1>
-        <section className="flex items-center gap-2 my-3">
-          {totalPesertaRepechangeAtas &&
-            totalPesertaRepechangeAtas.map((item: any) => {
-              return (
-                <Link key={item.id} href={`/repechangeatas/${item.title}`}>
-                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
-                </Link>
-              );
-            })}
-          {antrian &&
-            antrian.map((item: any) => {
-              if (item.bracket == "RepechangeAtas") {
+        <section className="flex items-center justify-between gap-2 my-3">
+          <section className="flex items-center gap-2">
+            {totalPesertaRepechangeAtas &&
+              totalPesertaRepechangeAtas.map((item: any) => {
                 return (
-                  <Link key={item.id} href={`/antrian/${item.title}`}>
-                    <ButtonMain outline>
-                      Antrian Repechange {item.title}
-                    </ButtonMain>
+                  <Link key={item.id} href={`/repechangeatas/${item.title}`}>
+                    <ButtonMain outline>Repechange {item.title}</ButtonMain>
                   </Link>
                 );
-              }
-            })}
+              })}
+            {antrian &&
+              antrian.map((item: any) => {
+                if (item.bracket == "RepechangeAtas") {
+                  return (
+                    <Link key={item.id} href={`/antrian/${item.title}`}>
+                      <ButtonMain outline>
+                        Antrian Repechange {item.title}
+                      </ButtonMain>
+                    </Link>
+                  );
+                }
+              })}
+          </section>
+          <section className="flex items-center gap-2">
+            {pesertaRepechangeAtas?.length > 1 && <ButtonMain bgColor="red" onClick={handlePrintBracketRepechangeAtas}>Print <Printer /></ButtonMain>}
+          </section>
         </section>
-        <section className="overflow-auto mt-10">
+        <section ref={bracketRepechangeAtasRef} className="overflow-auto mt-10 print-container">
+          <h1 className="text-2xl ml-10 hidden print:inline-block justify-center font-bold mx-auto bg-blue-500 px-2 p-1 rounded-md text-slate-200">Bracket Repechange Atas</h1>
           {pesertaRepechangeAtas?.length > 1 ? (
             <Brackets
               rounds={pesertaRepechangeAtas}
@@ -444,38 +476,46 @@ const Bracket = () => {
         <h1 className="poppins-bold text-xl my-5 bg-blue-500 px-2 p-1 inline-block rounded-md text-slate-200">
           Repechange Bawah
         </h1>
-        <section className="flex items-center gap-2 my-3">
-          {totalPesertaRepechangeBawah &&
-            totalPesertaRepechangeBawah.map((item: any) => {
-              return (
-                <Link key={item.id} href={`/repechangebawah/${item.title}`}>
-                  <ButtonMain outline>Repechange {item.title}</ButtonMain>
-                </Link>
-              );
-            })}
-          {antrian &&
-            antrian.map((item: any) => {
-              if (item.bracket == "RepechangeBawah") {
+        <section className="flex items-center justify-between gap-2 my-3">
+          <section className="flex items-center gap-2">
+            {totalPesertaRepechangeBawah &&
+              totalPesertaRepechangeBawah.map((item: any) => {
                 return (
-                  <Link key={item.id} href={`/antrian/${item.title}`}>
-                    <ButtonMain outline>
-                      Antrian Repechange {item.title}
-                    </ButtonMain>
+                  <Link key={item.id} href={`/repechangebawah/${item.title}`}>
+                    <ButtonMain outline>Repechange {item.title}</ButtonMain>
                   </Link>
                 );
-              }
-            })}
+              })}
+            {antrian &&
+              antrian.map((item: any) => {
+                if (item.bracket == "RepechangeBawah") {
+                  return (
+                    <Link key={item.id} href={`/antrian/${item.title}`}>
+                      <ButtonMain outline>
+                        Antrian Repechange {item.title}
+                      </ButtonMain>
+                    </Link>
+                  );
+                }
+              })}
+          </section>
+          <section className="flex items-center gap-2">
+            {totalPesertaRepechangeBawah?.length > 1 && <ButtonMain bgColor="red" onClick={handlePrintBracketRepechangeBawah}>Print <Printer /></ButtonMain>}
+          </section>
         </section>
-        {pesertaRepechangeBawah?.length > 1 ? (
-          <Brackets
-            rounds={pesertaRepechangeBawah}
-            renderSeedComponent={CustomSeed}
-          />
-        ) : (
-          <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
-            Belum ada babak Repechange Bawah <Search size={35} />
-          </h1>
-        )}
+        <section ref={bracketRepechangeBawahRef} className="overflow-auto mt-10 print-container">
+          <h1 className="text-2xl ml-10 hidden print:inline-block justify-center font-bold mx-auto bg-blue-500 px-2 p-1 rounded-md text-slate-200">Bracket Repechange Bawah</h1>
+          {pesertaRepechangeBawah?.length > 1 ? (
+            <Brackets
+              rounds={pesertaRepechangeBawah}
+              renderSeedComponent={CustomSeed}
+            />
+          ) : (
+            <h1 className="text-2xl flex items-center justify-center gap-2 my-10">
+              Belum ada babak Repechange Bawah <Search size={35} />
+            </h1>
+          )}
+        </section>
       </section>
     </section>
   );

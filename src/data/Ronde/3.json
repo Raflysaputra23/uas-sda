@@ -7,22 +7,20 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
-          "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "id": "dd4srzd",
+          "name": "RAHMAN SODIQIN",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "TULANG BAWANG BARAT",
+          "tim": "SHINDOKA"
         },
         {
-          "id": "",
-          "name": "",
+          "id": "l0wv6w6",
+          "name": "LUTFI NOVA RAHMATULLOH",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "gambar": "/person.png",
+          "alamat": "PESAWARAN",
+          "tim": "GOJUKAI"
         }
       ]
     },
@@ -32,22 +30,66 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
+          "id": "aiofvag",
+          "name": "ANTONIUS DWI SAPUTRO ",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG BARAT",
+          "tim": "BKC"
         },
         {
-          "id": "",
-          "name": "",
+          "id": "8owztat",
+          "name": "DAFI AZZURA QATRUNNADA",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG TENGAH",
+          "tim": "INKANAS"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "o73kvr0",
+          "name": "DANIEL ALPA YULIAN NUGROHO ",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "METRO",
+          "tim": "INKAI"
+        },
+        {
+          "id": "qxwuazp",
+          "name": "GENTA ABRISAM SAFARAS",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "gambar": "/person.png",
+          "alamat": "BANDAR LAMPUNG",
+          "tim": "KKI"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "7ltjvbg",
+          "name": "M. ZIDDANE ALFARIZD",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "WAY KANAN",
+          "tim": "KKI"
+        },
+        {
+          "id": "a0v1qz7",
+          "name": "MUHAMMAD SADIQ AL FAJRI",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG TENGAH",
+          "tim": "BKC"
         }
       ]
     }

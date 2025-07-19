@@ -7,22 +7,22 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "gb5sip2",
-          "name": "rizky",
-          "score": 0,
+          "id": "dd4srzd",
+          "name": "RAHMAN SODIQIN",
+          "score": 5,
           "gambar": "/person.png",
-          "alamat": "tanggamus",
-          "tim": "kki",
-          "main": "true"
+          "alamat": "TULANG BAWANG BARAT",
+          "tim": "SHINDOKA",
+          "main": "false"
         },
         {
-          "id": "76i3zj3",
-          "name": "allwine",
-          "score": 0,
+          "id": "w25hj77",
+          "name": "M.FAUZAN ARIZAL",
+          "score": 3,
           "gambar": "/person.png",
-          "alamat": "bandar lampung",
-          "tim": "inkai",
-          "main": "true"
+          "alamat": "METRO",
+          "tim": "INKAI",
+          "main": "false"
         }
       ]
     },
@@ -57,21 +57,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "rsnztbc",
-          "name": "rafly",
+          "id": "kxdctl0",
+          "name": "RIFA DEVAN YUDISTIRA",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "bandar lampung",
-          "tim": "inkai",
+          "alamat": "TANGGAMUS",
+          "tim": "KKI",
           "main": "false"
         },
         {
-          "id": "k2u1x7f",
-          "name": "budi",
-          "score": 0,
+          "id": "e2ylmgt",
+          "name": "ALFIAN SAPUTRA",
+          "score": 1,
           "gambar": "/person.png",
-          "alamat": "lampung selatan",
-          "tim": "kki",
+          "alamat": "LAMPUNG TIMUR",
+          "tim": "INKAI",
           "main": "false"
         }
       ]
@@ -82,21 +82,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "xwlkg7q",
-          "name": "yuni",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "mesuji",
-          "tim": "lemkari",
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         },
         {
-          "id": "knwbctn",
-          "name": "lina",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "pringsewu",
-          "tim": "kki",
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         }
       ]
@@ -107,21 +107,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "vlek6yx",
-          "name": "surya",
-          "score": 0,
+          "id": "aiofvag",
+          "name": "ANTONIUS DWI SAPUTRO ",
+          "score": 1,
           "gambar": "/person.png",
-          "alamat": "lampung selatan",
-          "tim": "inkai",
+          "alamat": "LAMPUNG BARAT",
+          "tim": "BKC",
           "main": "false"
         },
         {
-          "id": "u677vbk",
-          "name": "andi",
+          "id": "ol6ijvq",
+          "name": "FAREL ANUGRAH PRATAMA",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "lampung utara",
-          "tim": "inkado",
+          "alamat": "WAY KANAN",
+          "tim": "INKANAS",
           "main": "false"
         }
       ]
@@ -132,21 +132,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "v60evdg",
-          "name": "reza",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "mesuji",
-          "tim": "kki",
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         },
         {
-          "id": "anr763y",
-          "name": "dedi",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "pringsewu",
-          "tim": "inkanas",
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         }
       ]
@@ -157,21 +157,21 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "6b6diu9",
-          "name": "fitri",
-          "score": 0,
+          "id": "um4xvic",
+          "name": "GALANG KEKOMI GERI",
+          "score": 1,
           "gambar": "/person.png",
-          "alamat": "lampung timur",
-          "tim": "kki",
+          "alamat": "PRINGSEWU ",
+          "tim": "INKADO",
           "main": "false"
         },
         {
-          "id": "g6ncmrq",
-          "name": "dian",
+          "id": "1w0oo9w",
+          "name": "RAKA ANDHIKA",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "lampung utara",
-          "tim": "gojuass",
+          "alamat": "LAMPUNG UTARA",
+          "tim": "INKAI",
           "main": "false"
         }
       ]
@@ -182,21 +182,221 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "kh7nhqa",
-          "name": "agus",
+          "id": "",
+          "name": "",
           "score": 0,
-          "gambar": "/person.png",
-          "alamat": "tulang bawang",
-          "tim": "inkado",
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         },
         {
-          "id": "0pzh3bd",
-          "name": "sinta",
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "8m25ws8",
+          "name": "REVAN RICHARDO SIBURIAN",
           "score": 0,
           "gambar": "/person.png",
-          "alamat": "pringsewu",
-          "tim": "inkai",
+          "alamat": "TULANG BAWANG BARAT",
+          "tim": "LEMKARI",
+          "main": "false"
+        },
+        {
+          "id": "o73kvr0",
+          "name": "DANIEL ALPA YULIAN NUGROHO ",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "METRO",
+          "tim": "INKAI",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "66snngv",
+          "name": "SAPTA RAMADHAN",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "TANGGAMUS",
+          "tim": "INKAI",
+          "main": "false"
+        },
+        {
+          "id": "xzg9drl",
+          "name": "MUHAMMAD HALIM WAHYUDHA",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG TIMUR",
+          "tim": "GOJU RYU ASS",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "bvua9lc",
+          "name": "REYHAN SATRIA RAMADHAN ",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "PRINGSEWU ",
+          "tim": "LEMKARI",
+          "main": "false"
+        },
+        {
+          "id": "7ltjvbg",
+          "name": "M. ZIDDANE ALFARIZD",
+          "score": 2,
+          "gambar": "/person.png",
+          "alamat": "WAY KANAN",
+          "tim": "KKI",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "apip46b",
+          "name": "TRIKO YUDHO KARTIKO",
+          "score": 1,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG SELATAN",
+          "tim": "KKI",
+          "main": "false"
+        },
+        {
+          "id": "pff0exw",
+          "name": "M. REYHAN PRATAMA PUTRA",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG UTARA",
+          "tim": "GOJU RYU ASS",
+          "main": "false"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "date": "",
+      "roundTitle": "Utama",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
+          "main": "false"
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": "",
           "main": "false"
         }
       ]

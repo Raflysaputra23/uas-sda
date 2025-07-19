@@ -1,0 +1,29 @@
+{
+  "title": "Finals",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "8owztat",
+          "name": "DAFI AZZURA QATRUNNADA",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG TENGAH",
+          "tim": "INKANAS"
+        }
+      ]
+    }
+  ],
+  "id": "Finals"
+}

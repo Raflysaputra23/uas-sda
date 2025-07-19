@@ -1,0 +1,52 @@
+{
+  "title": "2",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "7ltjvbg",
+          "name": "M. ZIDDANE ALFARIZD",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "WAY KANAN",
+          "tim": "KKI"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "qxwuazp",
+          "name": "GENTA ABRISAM SAFARAS",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "BANDAR LAMPUNG",
+          "tim": "KKI"
+        }
+      ]
+    }
+  ],
+  "id": "2"
+}

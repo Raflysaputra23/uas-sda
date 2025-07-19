@@ -1,0 +1,98 @@
+{
+  "title": "1",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "66snngv",
+          "name": "SAPTA RAMADHAN",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "TANGGAMUS",
+          "tim": "INKAI"
+        },
+        {
+          "id": "apip46b",
+          "name": "TRIKO YUDHO KARTIKO",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG SELATAN",
+          "tim": "KKI"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "lk2juhs",
+          "name": "ALDI JULIANTARA",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "PESAWARAN",
+          "tim": "SHOKAIDO"
+        },
+        {
+          "id": "mrghryq",
+          "name": "WAHYU RAMADHANI SEPBRIAN",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "TULANG BAWANG",
+          "tim": "KKI"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "",
+      "roundTitle": "RepechangeBawah",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    }
+  ],
+  "id": "1"
+}

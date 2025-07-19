@@ -1,0 +1,29 @@
+{
+  "title": "Finals",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "o73kvr0",
+          "name": "DANIEL ALPA YULIAN NUGROHO ",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "METRO",
+          "tim": "INKAI"
+        }
+      ]
+    }
+  ],
+  "id": "Finals"
+}

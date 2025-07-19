@@ -1,0 +1,29 @@
+{
+  "title": "3",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        }
+      ]
+    }
+  ],
+  "id": "3"
+}

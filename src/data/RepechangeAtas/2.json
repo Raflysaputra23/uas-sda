@@ -1,0 +1,52 @@
+{
+  "title": "2",
+  "seeds": [
+    {
+      "id": 1,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "aiofvag",
+          "name": "ANTONIUS DWI SAPUTRO ",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "LAMPUNG BARAT",
+          "tim": "BKC"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "",
+      "roundTitle": "RepechangeAtas",
+      "teams": [
+        {
+          "id": "",
+          "name": "",
+          "score": 0,
+          "gambar": "",
+          "alamat": "",
+          "tim": ""
+        },
+        {
+          "id": "l0wv6w6",
+          "name": "LUTFI NOVA RAHMATULLOH",
+          "score": 0,
+          "gambar": "/person.png",
+          "alamat": "PESAWARAN",
+          "tim": "GOJUKAI"
+        }
+      ]
+    }
+  ],
+  "id": "2"
+}

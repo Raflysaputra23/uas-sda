@@ -7,13 +7,12 @@
       "roundTitle": "Utama",
       "teams": [
         {
-          "id": "",
-          "name": "",
+          "id": "dd4srzd",
+          "name": "RAHMAN SODIQIN",
           "score": 0,
-          "gambar": "",
-          "alamat": "",
-          "tim": "",
-          "main": "false"
+          "gambar": "/person.png",
+          "alamat": "TULANG BAWANG BARAT",
+          "tim": "SHINDOKA"
         }
       ]
     }
